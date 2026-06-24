@@ -1,0 +1,87 @@
+/* src/themes/theme-system7.css
+   Mac System 7 skin: black-and-white, Geneva/Charcoal, pinstripe title bars,
+   square close box top-left, gray desktop. Scoped under [data-theme="system7"]. */
+
+[data-theme="system7"] {
+  --bg: #a8a8a8;          /* gray desktop */
+  --bg-panel: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #eeeeee;
+  --bg-card-active: #dddddd;
+  --text: #000000;
+  --text-dim: #000000;
+  --gold: #000000;
+  --border: #000000;
+  --accent: #000000;
+  /* Override the app's existing --sans var → retro font cascades everywhere. */
+  --sans: "Geneva","Charcoal","Helvetica Neue",Arial,sans-serif;
+  --desktop: #a8a8a8;
+}
+
+/* App chrome */
+[data-theme="system7"] .app { font-family: var(--sans); background: var(--desktop); }
+[data-theme="system7"] .app-header,
+[data-theme="system7"] .cv-palette,
+[data-theme="system7"] .cv-panel,
+[data-theme="system7"] .cv-recipe-picker,
+[data-theme="system7"] .cv-review-bar {
+  border-radius: 0 !important;
+  border: 1px solid #000;
+  background: #fff;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Buttons → rounded B&W */
+[data-theme="system7"] .cv-btn,
+[data-theme="system7"] button.bs-theme-seg {
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  box-shadow: 1px 1px 0 #000;
+  font-family: var(--sans);
+}
+[data-theme="system7"] .cv-btn:active { box-shadow: none; transform: translate(1px,1px); }
+[data-theme="system7"] .bs-theme-seg.active { background: #000 !important; color: #fff !important; }
+
+/* ── Nodes become System 7 windows ── */
+[data-theme="system7"] .cv-node {
+  border-radius: 0 !important;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  color: #000;
+}
+/* Header → pinstripe title bar with centered title + square close box */
+[data-theme="system7"] .cv-node [class*="-header"] {
+  background: repeating-linear-gradient(#000 0 1px, #fff 1px 3px) !important;
+  color: #000 !important;
+  text-align: center;
+  border-bottom: 1px solid #000 !important;
+  border-radius: 0 !important;
+  min-height: 18px;
+  font-family: var(--sans);
+  box-shadow: none !important;
+  position: relative;
+}
+/* Title text gets a white plate so it reads over the pinstripes */
+[data-theme="system7"] .cv-node [class*="-header"] > * {
+  background: #fff;
+  padding: 0 4px;
+}
+/* Square close box, top-left */
+[data-theme="system7"] .cv-node [class*="-header"]::before {
+  content: "";
+  position: absolute; left: 4px; top: 50%; transform: translateY(-50%);
+  width: 11px; height: 11px;
+  background: #fff; border: 1px solid #000;
+}
+
+/* Canvas backdrop + edges */
+[data-theme="system7"] .react-flow__pane,
+[data-theme="system7"] .react-flow { background: #a8a8a8 !important; }
+[data-theme="system7"] .react-flow__edge-path { stroke: #000 !important; stroke-width: 1 !important; filter: none !important; }
+[data-theme="system7"] .react-flow__background { opacity: 0; }
+
+[data-theme="system7"] .cv-palette-item,
+[data-theme="system7"] .cv-card { border-radius: 0 !important; }

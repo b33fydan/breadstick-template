@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "breadstick": {
+      "command": "node",
+      "args": ["mcp/server.js"]
+    }
+  }
+}

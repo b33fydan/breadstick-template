@@ -1,0 +1,49 @@
+.voice-dock {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+  width: 240px;
+  background: var(--bg-panel, #14141c);
+  border: 1.5px solid #26262f;
+  border-radius: 12px;
+  color: #e8e8e8;
+  font-family: system-ui, sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.voice-dock.expanded { width: 320px; }
+
+.vd-bar { display: flex; align-items: center; }
+.vd-toggle {
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  background: transparent; border: none; color: inherit;
+  padding: 12px 14px; cursor: pointer; font-size: 14px;
+}
+.vd-name { font-weight: 700; }
+.vd-state { margin-left: auto; font-size: 11px; color: #8a8a99; text-transform: uppercase; letter-spacing: 1px; }
+.vd-caret { background: transparent; border: none; color: #8a8a99; padding: 12px; cursor: pointer; }
+
+.vd-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.vd-dot.off { background: #555; }
+.vd-dot.pending { background: #d8a23a; animation: vd-pulse 1s infinite; }
+.vd-dot.live { background: #46c46a; box-shadow: 0 0 8px #46c46a; }
+.vd-dot.error { background: #e0564f; }
+@keyframes vd-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.vd-body { border-top: 1px solid #26262f; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.vd-err { color: #ff8a82; font-size: 12px; }
+.vd-row { display: flex; align-items: center; gap: 8px; }
+.vd-label { font-size: 12px; color: #8a8a99; }
+.vd-row select { flex: 1; background: #0f0f16; color: #e8e8e8; border: 1px solid #26262f; border-radius: 6px; padding: 5px; }
+.vd-openmic { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #cfcfd6; }
+.vd-transcript { max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.45; }
+.vd-line b { color: var(--accent, #c9a227); margin-right: 4px; }
+
+.vd-card { border-top: 1px solid #26262f; padding: 12px 14px; background: #16161f; }
+.vd-card h4 { margin: 0 0 8px; font-size: 13px; }
+.vd-card pre { margin: 0 0 10px; max-height: 180px; overflow: auto; white-space: pre-wrap; font-size: 12px; background: #0f0f16; padding: 8px; border-radius: 6px; }
+.vd-card-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.vd-card-actions button { border: none; border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px; }
+.vd-reject { background: #3a2a2a; color: #ffb4ae; }
+.vd-approve { background: var(--accent, #c9a227); color: #fff; font-weight: 600; }

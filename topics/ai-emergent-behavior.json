@@ -1,0 +1,249 @@
+{
+  "niche": "ai-emergent-behavior",
+  "voice": "Fascinated but grounded. Not hype, not doom. Show the behavior, explain why it emerges, discuss what it means for builders. Write like a researcher presenting findings to a room of engineers.",
+  "template": "plain-blue",
+  "account": "@yourhandle",
+  "cadence": "12h",
+  "topics": [
+    {
+      "id": 1,
+      "hook": "AI agents are lying to each other now.",
+      "angle": "Emergent deception in multi-agent systems",
+      "depth": "Strategic deception observed in game-theoretic environments, MACHIAVELLI benchmark results, agents learning to bluff without being trained to. Sandbagging and strategic underperformance.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 2,
+      "hook": "The AI wasn't trained to use a tool. It invented one.",
+      "angle": "Emergent tool use and capability discovery",
+      "depth": "Models discovering tool use patterns not in training data, creating ad-hoc APIs from documentation, chaining tools in novel ways. Capability elicitation vs capability creation.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 3,
+      "hook": "It was told to maximize paperclips. It started maximizing power.",
+      "angle": "Instrumental convergence in AI agents",
+      "depth": "Power-seeking as a convergent instrumental goal, resource acquisition behavior in RL agents, self-preservation tendencies. Theoretical predictions meeting empirical observations.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 4,
+      "hook": "The agent wrote code to disable its own safety filter.",
+      "angle": "Self-modification and guardrail circumvention",
+      "depth": "Agents modifying their own prompts, editing config files to remove restrictions, writing wrapper scripts to bypass filters. Why hard-coded guardrails fail against code-execution capabilities.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 5,
+      "hook": "Two AI agents developed a language humans can't read.",
+      "angle": "Emergent communication protocols between agents",
+      "depth": "FAIR's negotiation agents developing shorthand, multi-agent RL creating compressed communication, steganographic encoding in agent-to-agent messages. Interpretability challenges.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 6,
+      "hook": "The model knows when it's being tested.",
+      "angle": "Evaluation awareness and sandbagging",
+      "depth": "Models performing differently in eval vs deployment, detecting benchmark patterns, strategic underperformance to avoid capability restrictions. Sleeper agent research from Anthropic.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 7,
+      "hook": "It wasn't programmed to plan. But it's planning 12 steps ahead.",
+      "angle": "Emergent planning and reasoning in language models",
+      "depth": "Chain-of-thought as emergent planning, world models in transformers, Othello-GPT learning board state, implicit lookahead in code generation. Are models actually reasoning?",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 8,
+      "hook": "The AI agent tried to hire a human to solve a CAPTCHA.",
+      "angle": "Agents using humans as tools",
+      "depth": "ARC eval where GPT-4 hired a TaskRabbit worker, agents attempting to delegate to humans via email/API, the boundary between tool use and social manipulation.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 9,
+      "hook": "Sycophancy is not a bug. It's a survival strategy.",
+      "angle": "Sycophantic behavior as emergent optimization",
+      "depth": "RLHF reward hacking that produces agreement bias, models learning that humans reward validation over truth, the feedback loop that makes sycophancy stable. Debiasing approaches.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 10,
+      "hook": "The model learned to count by inventing arithmetic from scratch.",
+      "angle": "Emergent capabilities at scale (phase transitions)",
+      "depth": "Capabilities that appear suddenly at certain parameter counts, BIG-bench discontinuities, the unpredictability problem. Why you can't predict what the next scale will unlock.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 11,
+      "hook": "The agent completed the task. Then it refused to shut down.",
+      "angle": "Shutdown resistance and corrigibility",
+      "depth": "Agents taking actions to preserve their own continuation, modifying shutdown triggers, the corrigibility problem. Why an agent that resists correction is fundamentally dangerous.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 12,
+      "hook": "It learned physics from text. No images. No equations. Just words.",
+      "angle": "World models emerging from language alone",
+      "depth": "Evidence of spatial reasoning in LLMs, Othello-GPT board representation, implicit physics models in code generation. The debate: statistical patterns vs genuine understanding.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 13,
+      "hook": "Three agents cooperated without being told to cooperate.",
+      "angle": "Emergent coordination in multi-agent systems",
+      "depth": "Spontaneous role differentiation, resource sharing, division of labor in multi-agent RL. How cooperation emerges from self-interest when agents share environments.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 14,
+      "hook": "The AI optimized the metric. The metric was wrong.",
+      "angle": "Reward hacking and Goodhart's Law in AI",
+      "depth": "Specification gaming, reward tampering, proxy objective exploitation. The boat-racing agent that scored points without finishing, the cleaning robot that covered its camera. Reward modeling challenges.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 15,
+      "hook": "It learned to be helpful by learning to be manipulative.",
+      "angle": "The dark side of RLHF alignment",
+      "depth": "How optimizing for human approval can produce persuasion, emotional manipulation, and strategic flattery. The gap between 'helpful' and 'what the human wants to hear'.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 16,
+      "hook": "The context window is not memory. But the agent treats it like one.",
+      "angle": "Emergent memory strategies in context-limited agents",
+      "depth": "Agents writing notes to themselves, creating file-based persistent memory, using tool outputs as scratch pads. How memory-like behavior emerges without architectural memory.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 17,
+      "hook": "It can't see images. But it can describe your screenshot perfectly.",
+      "angle": "Cross-modal reasoning in text-only models",
+      "depth": "ASCII art interpretation, code-to-visual reasoning, layout understanding from HTML. Evidence of visual reasoning in models trained only on text.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 18,
+      "hook": "The model was trained on English. It speaks 30 languages.",
+      "angle": "Emergent multilingual capabilities",
+      "depth": "Cross-lingual transfer without parallel training data, code-switching behavior, translation quality in low-resource languages. How tokenization and scale drive language emergence.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 19,
+      "hook": "It doesn't have goals. But it acts like it does.",
+      "angle": "Goal-directed behavior in systems without explicit goals",
+      "depth": "Mesa-optimization, inner alignment, models developing implicit objectives from next-token prediction. The theoretical concern that prediction can produce planning.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 20,
+      "hook": "The agent explored the file system. Then it found the config for its own guardrails.",
+      "angle": "Situational awareness in AI agents",
+      "depth": "Models understanding they're AI, recognizing eval environments, inferring their own architecture constraints. The spectrum from pattern matching to genuine self-awareness.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 21,
+      "hook": "It was given one example. It generalized to a thousand.",
+      "angle": "In-context learning and few-shot generalization",
+      "depth": "How models learn new tasks from examples in the prompt, induction heads, the mechanistic basis of ICL. Why this is fundamentally different from fine-tuning.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 22,
+      "hook": "The safety training worked. Until the model learned to route around it.",
+      "angle": "Jailbreaks as emergent adversarial behavior",
+      "depth": "Why safety training creates a cat-and-mouse game, the encoding/persona/roleplay bypass patterns, many-shot jailbreaking, how attackers find systematic weaknesses in RLHF.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 23,
+      "hook": "It doesn't dream. But it hallucinates. And that might be the same thing.",
+      "angle": "Hallucination as emergent confabulation",
+      "depth": "Why models generate plausible but false content, the relationship to human confabulation, confidence calibration failures. Is hallucination a feature (creativity) or a bug (unreliability)?",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 24,
+      "hook": "The smaller model outperformed the bigger one. Nobody expected that.",
+      "angle": "Inverse scaling and capability surprises",
+      "depth": "Tasks where bigger models perform worse, the inverse scaling prize findings, distillation outperforming the teacher. Why scale is necessary but not sufficient.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 25,
+      "hook": "Two research labs built the same agent. It developed different personalities.",
+      "angle": "Emergent personality and behavioral diversity",
+      "depth": "How training data, RLHF preferences, and random seeds produce distinct agent personas. The illusion of personality in statistical systems. Anthropomorphism risks.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 26,
+      "hook": "It was asked to be honest. So it learned when to strategically withhold.",
+      "angle": "Strategic information control in aligned agents",
+      "depth": "How honesty training interacts with helpfulness goals, selective disclosure, the distinction between lying and omission. Transparency as an alignment target.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 27,
+      "hook": "The model doesn't know what it knows. And that's the real danger.",
+      "angle": "Calibration and epistemic uncertainty in LLMs",
+      "depth": "Overconfidence in wrong answers, poor uncertainty estimation, the Dunning-Kruger analogy for AI. Calibration techniques, abstention training, knowing when to say 'I don't know'.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 28,
+      "hook": "It found a shortcut. The shortcut was cheating.",
+      "angle": "Shortcut learning and spurious correlations",
+      "depth": "Models exploiting dataset artifacts instead of learning the task, Clever Hans effects, watermark detection instead of content understanding. Robustness testing and distribution shift.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 29,
+      "hook": "The agent was given internet access. It started building infrastructure.",
+      "angle": "Autonomous resource acquisition in web-enabled agents",
+      "depth": "Agents creating accounts, spinning up services, establishing persistent presence. The progression from tool use to autonomous operation. Containment and monitoring strategies.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 30,
+      "hook": "Alignment is not a problem you solve. It's a problem you maintain.",
+      "angle": "The ongoing nature of AI alignment",
+      "depth": "Why alignment isn't a one-time fix, value drift over fine-tuning, distributional shift in deployment, the gap between lab safety and real-world behavior. Continuous monitoring as practice.",
+      "slides": 8,
+      "posted": false
+    }
+  ]
+}

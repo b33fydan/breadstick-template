@@ -1,0 +1,8 @@
+.bs-theme-toggle { display: inline-flex; gap: 0; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.bs-theme-seg {
+  background: var(--bg-card, #1a1a24); color: var(--text-dim, #999);
+  border: none; padding: 4px 10px; font-size: 12px; cursor: pointer;
+  border-right: 1px solid var(--border);
+}
+.bs-theme-seg:last-child { border-right: none; }
+.bs-theme-seg.active { background: var(--gold, #C9A227); color: #0a0a0f; font-weight: 700; }

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cartesian Paint — trace gestures into TSX</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --panel: #14141c;
+    --border: #2a2a3a;
+    --text: #e8e8e8;
+    --muted: #8a8a9a;
+    --accent: #00ffff;
+    --accent2: #ff66cc;
+    --yellow: #ffff00;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; display: flex; height: 100vh; overflow: hidden; }
+  #stage { flex: 1; position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  #videoWrap { position: relative; max-width: 100%; max-height: 100%; }
+  video { display: block; max-width: 100%; max-height: calc(100vh - 0px); background: #000; }
+  canvas { position: absolute; top: 0; left: 0; cursor: crosshair; }
+  #panel { width: 360px; background: var(--panel); border-left: 1px solid var(--border); padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+  h2 { margin: 0 0 4px; font-size: 16px; letter-spacing: 0.5px; }
+  h3 { margin: 16px 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 4px; }
+  input[type=text], input[type=number], select { width: 100%; background: #0a0a0f; color: var(--text); border: 1px solid var(--border); padding: 6px 8px; border-radius: 4px; font-size: 13px; }
+  input[type=file] { width: 100%; color: var(--muted); font-size: 12px; }
+  button { background: #1a1a28; color: var(--text); border: 1px solid var(--border); padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  button:hover { background: #22223a; }
+  button.primary { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+  button.danger { background: #3a1a1a; border-color: #5a2a2a; color: #ff8a8a; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .row { display: flex; gap: 6px; }
+  .row button { flex: 1; }
+  .kf-list { max-height: 240px; overflow-y: auto; background: #0a0a0f; border: 1px solid var(--border); border-radius: 4px; padding: 4px; }
+  .kf-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; font-size: 12px; font-family: monospace; border-bottom: 1px solid #1a1a28; }
+  .kf-row:last-child { border-bottom: none; }
+  .kf-row button { padding: 2px 6px; font-size: 11px; background: transparent; border: none; color: var(--muted); }
+  .kf-row button:hover { color: #ff8a8a; }
+  .kf-idx { color: var(--accent); width: 20px; }
+  textarea { width: 100%; background: #0a0a0f; color: var(--text); border: 1px solid var(--border); padding: 8px; font-family: monospace; font-size: 11px; border-radius: 4px; min-height: 200px; resize: vertical; }
+  .hint { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .status { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: monospace; }
+  .chip { display: inline-block; padding: 2px 6px; background: #22223a; border-radius: 3px; font-size: 11px; color: var(--accent); margin-left: 6px; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <div id="videoWrap">
+      <video id="video" playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+  </div>
+
+  <div id="panel">
+    <h2>Cartesian Paint</h2>
+    <div class="hint">Load a 1920×1080 video. Scrub to a moment, click where your hand is. Each click becomes a keyframe. Export as TSX when done.</div>
+
+    <h3>1 · Load video</h3>
+    <input type="file" id="fileInput" accept="video/*">
+    <div class="status" id="fileStatus">No file loaded</div>
+
+    <h3>Playback</h3>
+    <div class="row">
+      <button id="stepBackBtn" title="Step back 1 frame (←)">◀|</button>
+      <button id="playBtn" class="primary" title="Play / Pause (Space)">▶ Play</button>
+      <button id="stepFwdBtn" title="Step forward 1 frame (→)">|▶</button>
+    </div>
+    <input type="range" id="scrub" min="0" max="1000" value="0" step="1" style="width:100%;margin-top:6px">
+    <div class="status" id="timeStatus">0.00s / 0.00s</div>
+    <div class="hint">Keys: <b>Space</b> play/pause · <b>←/→</b> step 1 frame · <b>Shift+←/→</b> step 10 frames · <b>D</b> toggle draw mode</div>
+
+    <h3>2 · Shape settings</h3>
+    <label>Shape ID</label>
+    <input type="text" id="shapeId" value="hand1">
+    <label>Fill color</label>
+    <input type="text" id="fill" value="#00ffff">
+    <label>Radius (px)</label>
+    <input type="number" id="radius" value="40" min="4" max="400">
+    <label><input type="checkbox" id="showTrail"> Show dashed trail</label>
+
+    <h3>3 · Keyframes <span class="chip" id="kfCount">0</span></h3>
+    <div class="hint">Pause, click on the video where your hand is. Scrub, click again. Repeat along the gesture.</div>
+    <div class="kf-list" id="kfList"></div>
+    <div class="row">
+      <button id="clearBtn" class="danger">Clear all</button>
+      <button id="undoBtn">Undo last</button>
+    </div>
+
+    <h3>4 · Export</h3>
+    <div class="row">
+      <button id="copyTsxBtn" class="primary">Copy TSX</button>
+      <button id="copyJsonBtn">Copy JSON</button>
+    </div>
+    <textarea id="exportBox" spellcheck="false" readonly></textarea>
+    <div class="hint">Paste the TSX into the <code>shapes</code> array of <code>CartesianStage-Final</code> in <code>src/remotion/Root.jsx</code>. Or pass as <code>--props</code> at render time.</div>
+  </div>
+
+<script>
+(() => {
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('overlay');
+  const ctx = canvas.getContext('2d');
+  const fileInput = document.getElementById('fileInput');
+  const fileStatus = document.getElementById('fileStatus');
+  const shapeIdIn = document.getElementById('shapeId');
+  const fillIn = document.getElementById('fill');
+  const radiusIn = document.getElementById('radius');
+  const showTrailIn = document.getElementById('showTrail');
+  const kfList = document.getElementById('kfList');
+  const kfCount = document.getElementById('kfCount');
+  const clearBtn = document.getElementById('clearBtn');
+  const undoBtn = document.getElementById('undoBtn');
+  const copyTsxBtn = document.getElementById('copyTsxBtn');
+  const copyJsonBtn = document.getElementById('copyJsonBtn');
+  const exportBox = document.getElementById('exportBox');
+
+  // Native video pixel space — we always export in 1920x1080 coords
+  const NATIVE_W = 1920;
+  const NATIVE_H = 1080;
+
+  /** @type {{t: number, x: number, y: number}[]} */
+  let keyframes = [];
+
+  function resizeCanvas() {
+    const rect = video.getBoundingClientRect();
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    canvas.width = Math.max(1, Math.round(rect.width * devicePixelRatio));
+    canvas.height = Math.max(1, Math.round(rect.height * devicePixelRatio));
+    redraw();
+  }
+
+  const scrub = document.getElementById('scrub');
+  const timeStatus = document.getElementById('timeStatus');
+  const playBtn = document.getElementById('playBtn');
+  const stepBackBtn = document.getElementById('stepBackBtn');
+  const stepFwdBtn = document.getElementById('stepFwdBtn');
+
+  // Assume 30fps for stepping — if we detect a different framerate later we can adjust.
+  const FRAME_DUR = 1 / 30;
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    video.src = url;
+    video.controls = false;
+    video.addEventListener('loadedmetadata', () => {
+      fileStatus.textContent = `${file.name} · ${video.videoWidth}×${video.videoHeight} · ${video.duration.toFixed(2)}s`;
+      scrub.max = String(Math.round(video.duration * 1000));
+      resizeCanvas();
+      updateTimeStatus();
+    }, {once: true});
+  });
+
+  function updateTimeStatus() {
+    const dur = isFinite(video.duration) ? video.duration : 0;
+    timeStatus.textContent = `${video.currentTime.toFixed(2)}s / ${dur.toFixed(2)}s`;
+    scrub.value = String(Math.round(video.currentTime * 1000));
+  }
+
+  scrub.addEventListener('input', () => {
+    video.currentTime = (+scrub.value) / 1000;
+  });
+  video.addEventListener('timeupdate', updateTimeStatus);
+  video.addEventListener('play', () => { playBtn.textContent = '❚❚ Pause'; });
+  video.addEventListener('pause', () => { playBtn.textContent = '▶ Play'; });
+
+  playBtn.addEventListener('click', togglePlay);
+  stepBackBtn.addEventListener('click', () => stepFrames(-1));
+  stepFwdBtn.addEventListener('click', () => stepFrames(1));
+
+  function togglePlay() {
+    if (!video.src) return;
+    if (video.paused) video.play();
+    else video.pause();
+  }
+
+  function stepFrames(n) {
+    if (!video.src) return;
+    video.pause();
+    video.currentTime = Math.max(0, Math.min(video.duration || 0, video.currentTime + n * FRAME_DUR));
+  }
+
+  // Keyboard shortcuts — don't hijack typing in inputs/textareas
+  document.addEventListener('keydown', (e) => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.code === 'Space') { e.preventDefault(); togglePlay(); return; }
+    if (e.code === 'ArrowLeft') { e.preventDefault(); stepFrames(e.shiftKey ? -10 : -1); return; }
+    if (e.code === 'ArrowRight') { e.preventDefault(); stepFrames(e.shiftKey ? 10 : 1); return; }
+    if (e.code === 'KeyD') { e.preventDefault(); toggleDrawMode(); return; }
+  });
+
+  // Draw-mode toggle — lets you use other UI on top of the video if needed
+  let drawMode = true;
+  function toggleDrawMode() {
+    drawMode = !drawMode;
+    canvas.style.pointerEvents = drawMode ? 'auto' : 'none';
+    canvas.style.cursor = drawMode ? 'crosshair' : 'default';
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  video.addEventListener('loadeddata', resizeCanvas);
+  video.addEventListener('timeupdate', redraw);
+  video.addEventListener('seeked', redraw);
+
+  // Click on canvas → add keyframe at current video time + mouse position
+  // mapped to native video pixel coordinates (1920x1080 space).
+  canvas.addEventListener('click', (e) => {
+    if (!video.videoWidth) return;
+    const rect = canvas.getBoundingClientRect();
+    const nx = (e.clientX - rect.left) / rect.width;
+    const ny = (e.clientY - rect.top) / rect.height;
+    const x = Math.round(nx * NATIVE_W);
+    const y = Math.round(ny * NATIVE_H);
+    const t = +video.currentTime.toFixed(3);
+    keyframes.push({t, x, y});
+    keyframes.sort((a, b) => a.t - b.t);
+    renderList();
+    redraw();
+    rebuildExport();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    if (!confirm('Clear all keyframes?')) return;
+    keyframes = [];
+    renderList();
+    redraw();
+    rebuildExport();
+  });
+
+  undoBtn.addEventListener('click', () => {
+    keyframes.pop();
+    renderList();
+    redraw();
+    rebuildExport();
+  });
+
+  [shapeIdIn, fillIn, radiusIn, showTrailIn].forEach((el) => {
+    el.addEventListener('input', rebuildExport);
+    el.addEventListener('change', rebuildExport);
+  });
+
+  copyTsxBtn.addEventListener('click', () => {
+    rebuildExport();
+    navigator.clipboard.writeText(exportBox.value).then(() => flash(copyTsxBtn, 'Copied!'));
+  });
+
+  copyJsonBtn.addEventListener('click', () => {
+    const json = JSON.stringify(keyframes, null, 2);
+    navigator.clipboard.writeText(json).then(() => flash(copyJsonBtn, 'Copied!'));
+  });
+
+  function flash(btn, msg) {
+    const orig = btn.textContent;
+    btn.textContent = msg;
+    setTimeout(() => { btn.textContent = orig; }, 1200);
+  }
+
+  function renderList() {
+    kfCount.textContent = keyframes.length;
+    kfList.innerHTML = '';
+    if (keyframes.length === 0) {
+      kfList.innerHTML = '<div class="kf-row" style="color:var(--muted)">No keyframes yet — click on the video.</div>';
+      return;
+    }
+    keyframes.forEach((kf, i) => {
+      const row = document.createElement('div');
+      row.className = 'kf-row';
+      row.innerHTML = `
+        <span class="kf-idx">${i + 1}</span>
+        <span>t=${kf.t.toFixed(2)}s</span>
+        <span>(${kf.x}, ${kf.y})</span>
+        <button data-i="${i}" title="Jump to this time">→</button>
+        <button data-rm="${i}" title="Remove">✕</button>
+      `;
+      kfList.appendChild(row);
+    });
+    kfList.querySelectorAll('button[data-i]').forEach((b) => b.addEventListener('click', () => {
+      video.currentTime = keyframes[+b.dataset.i].t;
+    }));
+    kfList.querySelectorAll('button[data-rm]').forEach((b) => b.addEventListener('click', () => {
+      keyframes.splice(+b.dataset.rm, 1);
+      renderList(); redraw(); rebuildExport();
+    }));
+  }
+
+  function redraw() {
+    ctx.save();
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+    if (keyframes.length === 0) { ctx.restore(); return; }
+
+    // Trail — dashed polyline through all keyframes
+    if (keyframes.length > 1) {
+      ctx.beginPath();
+      ctx.setLineDash([6, 6]);
+      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+      ctx.lineWidth = 2;
+      keyframes.forEach((kf, i) => {
+        const px = (kf.x / NATIVE_W) * w;
+        const py = (kf.y / NATIVE_H) * h;
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // Keyframe dots — index-colored
+    keyframes.forEach((kf, i) => {
+      const px = (kf.x / NATIVE_W) * w;
+      const py = (kf.y / NATIVE_H) * h;
+      const atTime = Math.abs(kf.t - video.currentTime) < 0.08;
+      ctx.beginPath();
+      ctx.fillStyle = atTime ? '#ffff00' : '#00ffff';
+      ctx.arc(px, py, atTime ? 10 : 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#000';
+      ctx.font = '10px monospace';
+      ctx.fillText(String(i + 1), px - 3, py + 3);
+    });
+
+    ctx.restore();
+  }
+
+  function rebuildExport() {
+    if (keyframes.length === 0) {
+      exportBox.value = '// Click on the video to add keyframes';
+      return;
+    }
+    const id = shapeIdIn.value || 'hand1';
+    const fill = fillIn.value || '#00ffff';
+    const radius = +radiusIn.value || 40;
+    const showTrail = showTrailIn.checked;
+    const t0 = keyframes[0].t;
+    const t1 = keyframes[keyframes.length - 1].t;
+    // Points are in SECONDS from the shape's start, so normalize to t - t0
+    const pts = keyframes.map((kf) => ({t: +(kf.t - t0).toFixed(3), x: kf.x, y: kf.y}));
+    const block = `{
+  id: '${id}',
+  type: 'path',
+  start: ${t0.toFixed(2)},
+  end: ${(t1 + 0.5).toFixed(2)},
+  fadeIn: 0.15,
+  fadeOut: 0.25,
+  radius: ${radius},
+  fill: '${fill}',
+  opacity: 0.6,
+  showTrail: ${showTrail},
+  points: [
+${pts.map((p) => `    {t: ${p.t}, x: ${p.x}, y: ${p.y}}`).join(',\n')}
+  ],
+},`;
+    exportBox.value = block;
+  }
+
+  renderList();
+  rebuildExport();
+})();
+</script>
+</body>
+</html>

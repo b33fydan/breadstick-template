@@ -1,0 +1,185 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+
+# Block 4: per-canvas-node staged context files (script wires, transcripts,
+# preambles). Sometimes contain Mayordomo-class persona content; never commit.
+wire-buffer/
+
+# Service account JSON keys, OAuth tokens, etc. NEVER commit.
+.secrets/
+
+# Pipeline outputs (large video files)
+pipeline/output/
+pipeline/clips/
+pipeline/work/
+pipeline/.pipeline_lock
+pipeline/task_ids.txt
+
+# Carousel test outputs (regeneratable)
+carousels/workspace/
+carousels/__pycache__/
+
+# Remotion + compositor generated assets
+renders/
+public/comp-work/
+public/carousel-video/
+public/chroma-motion/
+public/cartesian-composite/
+public/hyperframes/
+
+# Hyperframes scaffold: commit skeleton (config + docs), ignore per-render artifacts
+hyperframes/*/assets/
+hyperframes/*/index.html
+
+# Local shoot assets & scratch pipelines
+pipeline/shortform/
+pipeline/longform/
+pipeline_*.json
+download.html
+
+# Stray test recordings at repo root (regeneratable from POV/glasses)
+/test_*.mp4
+
+# Pipeline scratch directories that fill with render output
+pipeline/inbox/
+# pipeline/maestro/ holds local sessions/audio scratch — ignore its contents
+# but whitelist the proactive schedule example template (it's a reference).
+# Note: glob form `pipeline/maestro/*` (not `pipeline/maestro/`) is required
+# for the negation below to take effect; git won't reinclude files inside a
+# fully-ignored directory.
+pipeline/maestro/*
+!pipeline/maestro/proactive.example.json
+
+# Per-render outputs in public/ (regenerate via pipeline)
+public/gami/
+public/terminal-slides/
+
+# Hyperframes overlay-lab — test renders only, source files stay tracked
+hyperframes/overlay-lab/*.mp4
+
+# Proprietary content library — paid-for knowledge, prompts, and strategy.
+# Testers / external collaborators bring their own content; this stays local.
+# Note: untracking via .gitignore only affects future commits. Files already
+# in the repo's git history remain retrievable unless history is rewritten.
+docs/
+
+# Superpowers brainstorming visual companion (HTML mockups served to browser)
+.superpowers/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Symlinked external Remotion B-roll library (lives at external/remotion)
+external/remotion
+
+# Symlinked external Chung-U builder pack corpus (external reference corpus)
+# — reference material, not source. Junction lets us read packs without
+# bundling 42MB of demos into the repo.
+external/chung-u
+
+# Agent skill installer artifacts (npx skills add). Symlinks for various
+# agents (Codex, Cursor, Continue, etc.) — actual skills live at user scope.
+# .codex/ also holds Codex CLI project config (config.toml carries MCP API keys).
+.agents/
+.augment/
+.codex/
+.continue/
+.pi/
+.claude/skills/
+
+# Local recording / shoot artifacts
+teleprompter/
+
+# Generated docx artifacts (regen via tools/generate_*.js|.py)
+tools/*.docx
+
+# Website captures (R&D / reference) — third-party assets, regeneratable
+# via `npx hyperframes capture <URL> -o captures/<name>`. Not part of the
+# product, often contains other companies' copyrighted material.
+captures/
+
+# Per-video composition workspaces (apple-motion, etc.). Each one is
+# scoped to a single rendered piece and pulls in the source's captured
+# assets, which we don't redistribute. Recreate via website-to-hyperframes
+# workflow when needed.
+videos/
+
+# Concept Composer recordings (regeneratable)
+public/concept-recordings/
+
+# Playwright MCP browser artifacts (console logs + page snapshots).
+# Snapshots can capture filled form fields — incl. API-key textboxes —
+# so these must never reach git.
+.playwright-mcp/
+
+# Session scratch workspace (renders, test frames, throwaway scripts)
+.tmp/
+
+# Render/test scratch at repo root: Remotion still-frame defaults and smoke
+# output. Session-verify screenshots belong in captures/session-shots/ (the
+# captures/ rule already covers them); the root *.png rule stops new drops.
+/out/
+/.out/
+/*.png
+
+# Per-run b-roll render outputs (frame-sandwich videos from the broll verb)
+pipeline/broll/
+
+# Generated render outputs in public/ (regenerate via /api/remotion/* + bokeh).
+# public/skyframe/ holds SkyframeSingleEffect per-effect .webm renders.
+public/audio-viz/
+public/skyframe-overlays/
+public/bokeh/
+public/skyframe/
+
+# Imported skill packs — content reinstalls from skills-lock.json pins; the
+# lock file is tracked, the pack payloads are not.
+skills/design-motion-principles/
+skills/design-taste-frontend/
+skills/impeccable/
+skills/remotion-best-practices/
+
+# Generated music library (Suno via kie.ai; served at /sounds-suno)
+sounds/suno/
+
+# Local test recordings
+testing-vids/
+
+# HyperFrames per-project preview thumbnails (generated)
+hyperframes/*/.thumbnails/
+
+# Pipeline render outputs (regeneratable)
+output/
+
+# Session continuity crystals — working-tree-only, same policy as docs/
+crystals/
+
+# Activity ledger (local operator data, feeds Arecibo Transmission)
+data/ledger/
+
+# Job queue tickets (mutable job state — phone numbers, Drive URLs)
+data/jobs/
+
+# Operator-only handoff docs — never ship in the public template
+PUBLISH-CHECKLIST.md
+AUDIT-REPORT.md

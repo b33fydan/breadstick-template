@@ -1,0 +1,17 @@
+# gitleaks configuration for the Breadstick template.
+# Extends the default ruleset and allowlists a few benign, non-secret strings
+# that the default "generic-api-key" rule false-positives on.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Benign UI/localStorage keys and test fixtures — not secrets"
+regexes = [
+  # localStorage UI-state key (NodePalette collapse state), not a credential
+  '''cv-palette-categories-v2''',
+  # unit-test fixtures / placeholders
+  '''sk-ant-aaa111''',
+  '''sk-ant-explicit''',
+  '''ghp_abc''',
+]

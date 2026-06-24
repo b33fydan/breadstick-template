@@ -1,0 +1,50 @@
+{
+  "id": "windows-retro",
+  "name": "Windows Retro",
+  "description": "Classic Windows 95 desktop with Command Prompt terminal — story types into the prompt",
+  "fonts": {
+    "headline": "PlayfairDisplay-Bold.ttf",
+    "headline_italic": "PlayfairDisplay-BoldItalic.ttf",
+    "body": "SpaceMono-Regular.ttf",
+    "body_bold": "SpaceMono-Bold.ttf",
+    "chrome": "SpaceMono-Regular.ttf",
+    "chrome_bold": "SpaceMono-Bold.ttf",
+    "hand": null
+  },
+  "font_sizes": {
+    "headline_xl": 96,
+    "headline_lg": 72,
+    "headline_md": 56,
+    "headline_sm": 40,
+    "body_lg": 36,
+    "body": 32,
+    "body_sm": 26,
+    "chrome": 22,
+    "caption": 24
+  },
+  "colors": {
+    "dark": {
+      "bg": "#008080",
+      "text": "#ffffff",
+      "text_muted": "#c0c0c0",
+      "accent": "#ffff00",
+      "accent_secondary": "#000080",
+      "border": "#000000",
+      "tag_outline": "#ffff00"
+    }
+  },
+  "background": {
+    "style": "flat"
+  },
+  "chrome": {
+    "tag_style": "inline_header",
+    "header_format": "* {tag}",
+    "slide_counter": true,
+    "progress_bar": true,
+    "blockquote_body": false,
+    "accent_italic": false,
+    "terminal_style": "win95",
+    "terminal_full_slide": true
+  },
+  "slide_types": ["hook", "body", "image_body", "feature_grid", "cta", "cta_follow", "terminal_body"]
+}

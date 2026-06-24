@@ -1,0 +1,89 @@
+/* src/themes/theme-win95.css
+   Win95 skin: gray bevels, system Tahoma/MS-Sans, title-bar buttons right,
+   teal desktop. Scoped under [data-theme="win95"]; Modern (:root) untouched. */
+
+[data-theme="win95"] {
+  --bg: #008080;          /* teal desktop */
+  --bg-panel: #c0c0c0;
+  --bg-card: #c0c0c0;
+  --bg-card-hover: #d4d0c8;
+  --bg-card-active: #b0b0a8;
+  --text: #000000;
+  --text-dim: #000080;    /* navy */
+  --gold: #000080;        /* accent → navy title bars */
+  --border: #000000;
+  --accent: #000080;
+  /* Override the app's existing --sans var → retro font cascades through
+     :root, buttons, and inputs automatically (no index.css change). */
+  --sans: "Tahoma","MS Sans Serif","Segoe UI",sans-serif;
+  --desktop: #008080;
+}
+
+/* App chrome */
+[data-theme="win95"] .app { font-family: var(--sans); background: var(--desktop); }
+[data-theme="win95"] .app-header,
+[data-theme="win95"] .cv-palette,
+[data-theme="win95"] .cv-panel,
+[data-theme="win95"] .cv-recipe-picker,
+[data-theme="win95"] .cv-review-bar {
+  border-radius: 0 !important;
+  border: 2px solid #000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+  background: #c0c0c0;
+}
+
+/* Buttons → beveled gray */
+[data-theme="win95"] .cv-btn,
+[data-theme="win95"] button.bs-theme-seg {
+  border-radius: 0 !important;
+  background: #c0c0c0 !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+  font-family: var(--sans);
+}
+[data-theme="win95"] .cv-btn:active { box-shadow: inset -1px -1px 0 #dfdfdf, inset 1px 1px 0 #808080; }
+[data-theme="win95"] .bs-theme-seg.active { background: #000080 !important; color: #fff !important; }
+
+/* ── Nodes become Win95 windows ── */
+[data-theme="win95"] .cv-node {
+  border-radius: 0 !important;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080, 2px 2px 0 #000;
+  color: #000;
+}
+/* The bespoke header of every node → a Win95 title bar
+   (substring-match, !important beats inline gradients) */
+[data-theme="win95"] .cv-node [class*="-header"] {
+  background: linear-gradient(90deg, #000080, #1084d0) !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  min-height: 20px;
+  font-family: var(--sans);
+  font-weight: 700;
+  box-shadow: none !important;
+}
+/* Fake title-bar buttons */
+[data-theme="win95"] .cv-node [class*="-header"]::after {
+  content: "_ ▢ ✕";
+  float: right;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  background: #c0c0c0;
+  color: #000;
+  padding: 0 2px;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+}
+
+/* Canvas backdrop + edges */
+[data-theme="win95"] .react-flow__pane,
+[data-theme="win95"] .react-flow { background: #008080 !important; }
+[data-theme="win95"] .react-flow__edge-path { stroke: #000 !important; stroke-width: 1.5 !important; filter: none !important; }
+[data-theme="win95"] .react-flow__background { opacity: 0; }
+
+/* Sidebar / cards */
+[data-theme="win95"] .cv-palette-item,
+[data-theme="win95"] .cv-card { border-radius: 0 !important; }

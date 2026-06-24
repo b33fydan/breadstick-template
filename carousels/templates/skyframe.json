@@ -1,0 +1,59 @@
+{
+  "id": "skyframe",
+  "name": "Skyframe",
+  "description": "Particle network bg, Audiowide headlines, yellow/cyan accents, tech aesthetic",
+  "fonts": {
+    "headline": "Audiowide-Regular.ttf",
+    "headline_italic": null,
+    "body": "SpaceMono-Regular.ttf",
+    "body_bold": "SpaceMono-Bold.ttf",
+    "chrome": "Quantico-Regular.ttf",
+    "chrome_bold": "Quantico-Bold.ttf",
+    "hand": "Caveat.ttf"
+  },
+  "font_sizes": {
+    "headline_xl": 120,
+    "headline_lg": 88,
+    "headline_md": 64,
+    "headline_sm": 48,
+    "body_lg": 48,
+    "body": 42,
+    "body_sm": 34,
+    "chrome": 22,
+    "caption": 28
+  },
+  "colors": {
+    "dark": {
+      "bg": "#000000",
+      "text": "#F0F0F0",
+      "text_muted": "#cccccc",
+      "accent": "#ffff00",
+      "accent_secondary": "#00ffff",
+      "border": "#cccc00",
+      "tag_outline": "#00ffff"
+    },
+    "light": {
+      "bg": "#FFFFFF",
+      "text": "#1a1a1a",
+      "text_muted": "#555555",
+      "accent": "#c8a000",
+      "accent_secondary": "#0088aa",
+      "border": "#c8a000",
+      "tag_outline": "#0088aa"
+    }
+  },
+  "background": {
+    "style": "particles",
+    "particle_count": 70,
+    "connection_dist": 140,
+    "radial_glow": true
+  },
+  "chrome": {
+    "tag_style": "outline_badge",
+    "header_format": null,
+    "slide_counter": false,
+    "progress_bar": false,
+    "blockquote_body": false
+  },
+  "slide_types": ["hook", "body", "image_body", "cta", "cta_follow"]
+}

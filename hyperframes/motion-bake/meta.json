@@ -1,0 +1,5 @@
+{
+  "id": "motion-bake",
+  "name": "motion-bake",
+  "description": "Workspace for the Motion Bake pipeline — index.html is overwritten per-beat by the server endpoint."
+}

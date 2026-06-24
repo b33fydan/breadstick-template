@@ -1,0 +1,57 @@
+{
+  "id": "plain-white",
+  "name": "Plain White",
+  "description": "Clean white editorial, serif headlines with darker blue accents for contrast, monospace body, card grids",
+  "fonts": {
+    "headline": "PlayfairDisplay-Bold.ttf",
+    "headline_italic": "PlayfairDisplay-BoldItalic.ttf",
+    "body": "SpaceMono-Regular.ttf",
+    "body_bold": "SpaceMono-Bold.ttf",
+    "chrome": "SpaceMono-Regular.ttf",
+    "chrome_bold": "SpaceMono-Bold.ttf",
+    "hand": null
+  },
+  "font_sizes": {
+    "headline_xl": 108,
+    "headline_lg": 80,
+    "headline_md": 60,
+    "headline_sm": 44,
+    "body_lg": 38,
+    "body": 34,
+    "body_sm": 28,
+    "chrome": 22,
+    "caption": 24
+  },
+  "colors": {
+    "dark": {
+      "bg": "#FFFFFF",
+      "text": "#1a1a1a",
+      "text_muted": "#666688",
+      "accent": "#3366cc",
+      "accent_secondary": "#3366cc",
+      "border": "#d0d0e0",
+      "tag_outline": "#3366cc"
+    },
+    "light": {
+      "bg": "#FFFFFF",
+      "text": "#1a1a1a",
+      "text_muted": "#666688",
+      "accent": "#3366cc",
+      "accent_secondary": "#3366cc",
+      "border": "#d0d0e0",
+      "tag_outline": "#3366cc"
+    }
+  },
+  "background": {
+    "style": "flat"
+  },
+  "chrome": {
+    "tag_style": "inline_header",
+    "header_format": "* {tag}  ·  {topic}",
+    "slide_counter": true,
+    "progress_bar": true,
+    "blockquote_body": true,
+    "accent_italic": true
+  },
+  "slide_types": ["hook", "body", "image_body", "feature_grid", "cta", "cta_follow"]
+}

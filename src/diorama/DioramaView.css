@@ -1,0 +1,62 @@
+.diorama-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 52px);
+  overflow: hidden;
+  background: #e8ddd0;
+}
+
+.diorama-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.diorama-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #e8ddd0;
+  gap: 16px;
+  z-index: 20;
+  transition: opacity 0.6s ease;
+}
+
+.diorama-loading.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4a3728;
+  letter-spacing: 1px;
+}
+
+.loading-sub {
+  font-size: 13px;
+  color: #8b7355;
+}
+
+.diorama-enter-btn {
+  margin-top: 8px;
+  padding: 10px 32px;
+  border: 2px solid #c9a227;
+  background: transparent;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c9a227;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.diorama-enter-btn:hover {
+  background: #c9a227;
+  color: #fff;
+}

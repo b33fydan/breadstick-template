@@ -1,0 +1,879 @@
+{
+  "generatedAt": "2026-04-27T10:10:56.375Z",
+  "count": 97,
+  "comps": [
+    {
+      "id": "AgreementTrap",
+      "slug": "agreement-trap",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "ArchitectBrain",
+      "slug": "architect-brain",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "ArchitectEvidence",
+      "slug": "architect-evidence",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "AresCrew",
+      "slug": "ares-crew",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "AresDifferent",
+      "slug": "ares-different",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "AresGetsBrain",
+      "slug": "ares-gets-brain",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "AresGetsSmarter",
+      "slug": "ares-gets-smarter",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "AresImmuneReveal",
+      "slug": "ares-immune-reveal",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "AresIntro",
+      "slug": "ares-intro",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "ArguesWithItself",
+      "slug": "argues-with-itself",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "AttackScenario",
+      "slug": "attack-scenario",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "AutoimmuneMetaphor",
+      "slug": "autoimmune-metaphor",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "AutoimmuneSpine",
+      "slug": "autoimmune-spine",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 330,
+      "durationSec": 11
+    },
+    {
+      "id": "BattleHardenedAi",
+      "slug": "battle-hardened-ai",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "BenchmarkCompare",
+      "slug": "benchmark-compare",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "BenchmarkInfra",
+      "slug": "benchmark-infra",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "BenchmarkShowdown",
+      "slug": "benchmark-showdown",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "BoringOnPurpose",
+      "slug": "boring-on-purpose",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "BuildJourney",
+      "slug": "build-journey",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 450,
+      "durationSec": 15
+    },
+    {
+      "id": "BuildingInPublic",
+      "slug": "building-in-public",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "CalibrationResult",
+      "slug": "calibration-result",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "ChatbotGenius",
+      "slug": "chatbot-genius",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "ConfidentAiV2",
+      "slug": "confident-ai-v2",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 420,
+      "durationSec": 14
+    },
+    {
+      "id": "ConfidentHallucination",
+      "slug": "confident-hallucination",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 390,
+      "durationSec": 13
+    },
+    {
+      "id": "ConfidentNoProof",
+      "slug": "confident-no-proof",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "ContextRot",
+      "slug": "context-rot",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 330,
+      "durationSec": 11
+    },
+    {
+      "id": "CoordinatorBouncer",
+      "slug": "coordinator-bouncer",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "CRTSubscribeOverlay",
+      "slug": "crt-subscribe",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "DataFlowNetwork",
+      "slug": "data-flow-network",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "DebateNotGuess",
+      "slug": "debate-not-guess",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "DebateRounds",
+      "slug": "debate-rounds",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "DeliberationCheck",
+      "slug": "deliberation-check",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "DeterministicRails",
+      "slug": "deterministic-rails",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "DevelopmentRoadmap",
+      "slug": "development-roadmap",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "DialecticalVsMonolithic",
+      "slug": "dialectical-vs-monolithic",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "EchoesOfWar",
+      "slug": "echoes-of-war",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 420,
+      "durationSec": 14
+    },
+    {
+      "id": "EngagementCTA",
+      "slug": "engagement-cta",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "EnterOrchestrator",
+      "slug": "enter-orchestrator",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "EvidenceExtractors",
+      "slug": "evidence-extractors",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "EvidenceOnly",
+      "slug": "evidence-only",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 420,
+      "durationSec": 14
+    },
+    {
+      "id": "FalsePositive",
+      "slug": "false-positive",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "ForcedHallucination",
+      "slug": "forced-hallucination",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "FreshAgents",
+      "slug": "fresh-agents",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "GrowthLoop",
+      "slug": "growth-loop",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "HashChainIntegrity",
+      "slug": "hash-chain-integrity",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "HonestAccurate",
+      "slug": "honest-accurate",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "HonestTrade",
+      "slug": "honest-trade",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "HypeVsSubstance",
+      "slug": "hype-vs-substance",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 390,
+      "durationSec": 13
+    },
+    {
+      "id": "ImmuneRecap",
+      "slug": "immune-recap",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "ImmuneSafeguards",
+      "slug": "immune-safeguards",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 504,
+      "durationSec": 16.8
+    },
+    {
+      "id": "InflammationControl",
+      "slug": "inflammation-control",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 390,
+      "durationSec": 13
+    },
+    {
+      "id": "InflammationFreeze",
+      "slug": "inflammation-freeze",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "IntuitionWarning",
+      "slug": "intuition-warning",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 330,
+      "durationSec": 11
+    },
+    {
+      "id": "JoinTheBuild",
+      "slug": "join-the-build",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "LlmBridge",
+      "slug": "llm-bridge",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "LlmIntegration",
+      "slug": "llm-integration",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "MemoryStream",
+      "slug": "memory-stream",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "ShatterConcept",
+      "slug": "shatter-concept",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "NarrativesVsEvidence",
+      "slug": "narratives-vs-evidence",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "NoBlackBox",
+      "slug": "no-black-box",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "OpenWorkshop",
+      "slug": "open-workshop",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "OracleTiebreaker",
+      "slug": "oracle-tiebreaker",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "OutsiderObsession",
+      "slug": "outsider-obsession",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "PainToPurpose",
+      "slug": "pain-to-purpose",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 420,
+      "durationSec": 14
+    },
+    {
+      "id": "PainfullyAverage",
+      "slug": "painfully-average",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "PainfullyAverageV2",
+      "slug": "painfully-average-v2",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 240,
+      "durationSec": 8
+    },
+    {
+      "id": "IdeaCollapse",
+      "slug": "idea-collapse",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 540,
+      "durationSec": 18
+    },
+    {
+      "id": "IdeaCollapseV2",
+      "slug": "idea-collapse-v2",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 480,
+      "durationSec": 16
+    },
+    {
+      "id": "IdeaCollapseV3",
+      "slug": "idea-collapse-v3",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 450,
+      "durationSec": 15
+    },
+    {
+      "id": "ProveNotLying",
+      "slug": "prove-not-lying",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "ProvenSystem",
+      "slug": "proven-system",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "RailsHeld",
+      "slug": "rails-held",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "RealAnalystLoop",
+      "slug": "real-analyst-loop",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "RebuiltReal",
+      "slug": "rebuilt-real",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 420,
+      "durationSec": 14
+    },
+    {
+      "id": "RebuiltRealV2",
+      "slug": "rebuilt-real-v2",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "RecursivePrompt",
+      "slug": "recursive-prompt",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 396,
+      "durationSec": 13.2
+    },
+    {
+      "id": "ScholarPrinciples",
+      "slug": "scholar-principles",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "ScholarSystem",
+      "slug": "scholar-system",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SeekingHonesty",
+      "slug": "seeking-honesty",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SelfVsNonself",
+      "slug": "self-vs-nonself",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SkepticChallenge",
+      "slug": "skeptic-challenge",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 360,
+      "durationSec": 12
+    },
+    {
+      "id": "SkepticOracle",
+      "slug": "skeptic-oracle",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 342,
+      "durationSec": 11.4
+    },
+    {
+      "id": "SmokeAlarmLiar",
+      "slug": "smoke-alarm-liar",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SmokeAlarmProblem",
+      "slug": "smoke-alarm-problem",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "StrategyPattern",
+      "slug": "strategy-pattern",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SubscribeAndBuild",
+      "slug": "subscribe-and-build",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "SubscribeCTA",
+      "slug": "subscribe-cta",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "SystemCatchesIt",
+      "slug": "system-catches-it",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 180,
+      "durationSec": 6
+    },
+    {
+      "id": "TaughtToArgue",
+      "slug": "taught-to-argue",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "ThinkNotMatch",
+      "slug": "think-not-match",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 390,
+      "durationSec": 13
+    },
+    {
+      "id": "TransparentProcess",
+      "slug": "transparent-process",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "TridentArchitect",
+      "slug": "trident-architect",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "TridentIntro",
+      "slug": "trident-intro",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 390,
+      "durationSec": 13
+    },
+    {
+      "id": "UnderdogBegins",
+      "slug": "underdog-begins",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "WelcomeAres",
+      "slug": "welcome-ares",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    },
+    {
+      "id": "WhatsNext",
+      "slug": "whats-next",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 300,
+      "durationSec": 10
+    },
+    {
+      "id": "WindowGazer",
+      "slug": "window-gazer",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "durationFrames": 270,
+      "durationSec": 9
+    }
+  ]
+}

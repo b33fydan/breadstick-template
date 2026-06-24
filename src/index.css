@@ -1,0 +1,87 @@
+:root {
+  --bg: #0a0a0f;
+  --bg-panel: #111118;
+  --bg-card: #1a1a24;
+  --bg-card-hover: #22222e;
+  --bg-card-active: #2a2a38;
+  --text: #e8e8e8;
+  --text-dim: #8888a0;
+  --text-muted: #555566;
+  --gold: #C9A227;
+  --gold-dim: rgba(201, 162, 39, 0.15);
+  --gold-border: rgba(201, 162, 39, 0.4);
+  --border: #2a2a35;
+  --danger: #e74c3c;
+  --danger-bg: rgba(231, 76, 60, 0.15);
+  /* Skyframe brand accents — used sparingly for primary action + completion
+     signals. Gold stays as the dominant ambient chrome; these are the
+     "spotlight" colors that mark active or done states. */
+  --sky-yellow: #FFFF00;
+  --sky-yellow-glow: rgba(255, 255, 0, 0.35);
+  --sky-yellow-dim: rgba(255, 255, 0, 0.10);
+  --sky-cyan: #00FFFF;
+  --sky-cyan-glow: rgba(0, 255, 255, 0.40);
+  --sky-cyan-dim: rgba(0, 255, 255, 0.10);
+  /* Success rebound to brand cyan — "done" reads as Skyframe completion
+     instead of generic green. */
+  --success: #00FFFF;
+
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  font: 14px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+input, textarea, select {
+  font-family: var(--sans);
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+textarea {
+  resize: vertical;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}

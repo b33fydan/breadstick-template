@@ -1,0 +1,11 @@
+TITLE "Neutral Identity"
+# Placeholder identity LUT — no color change. Drop in your own .cube to grade.
+LUT_3D_SIZE 2
+0.0 0.0 0.0
+1.0 0.0 0.0
+0.0 1.0 0.0
+1.0 1.0 0.0
+0.0 0.0 1.0
+1.0 0.0 1.0
+0.0 1.0 1.0
+1.0 1.0 1.0

@@ -1,0 +1,1380 @@
+{
+  "version": 1,
+  "generated": "2026-06-24T04:41:33.145Z",
+  "warnings": [],
+  "sections": {
+    "serverRoutes": [
+      {
+        "method": "POST",
+        "path": "/api/generate",
+        "description": "Anthropic API proxy — all Claude script/content generation (supports webSearch: true)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/openai/generate",
+        "description": "OpenAI API proxy (alternate LLM lane)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/buddy/chat",
+        "description": "Breadstick astronaut buddy — desktop-pet co-pilot chat (Anthropic-backed)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/kie/create",
+        "description": "kie.ai task creation — any model via { model, input } (Kling, Nano Banana, GPT Image-2, ...)"
+      },
+      {
+        "method": "GET",
+        "path": "/api/kie/status/:taskId",
+        "description": "kie.ai task polling"
+      },
+      {
+        "method": "POST",
+        "path": "/api/kie/upload-file"
+      },
+      {
+        "method": "POST",
+        "path": "/api/suno/create",
+        "description": "Suno music generation task creation"
+      },
+      {
+        "method": "GET",
+        "path": "/api/suno/status/:taskId",
+        "description": "Suno task polling"
+      },
+      {
+        "method": "POST",
+        "path": "/api/suno/callback",
+        "description": "Suno webhook callback receiver"
+      },
+      {
+        "method": "POST",
+        "path": "/api/suno/save-to-disk",
+        "description": "Persist finished Suno tracks to sounds/suno/"
+      },
+      {
+        "method": "USE",
+        "path": "/sounds-suno"
+      },
+      {
+        "method": "USE",
+        "path": "/bokeh-output"
+      },
+      {
+        "method": "POST",
+        "path": "/api/bokeh/composite"
+      },
+      {
+        "method": "USE",
+        "path": "/audio-viz"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/audio-viz",
+        "description": "Render AudioVisualizer composition for an audio file"
+      },
+      {
+        "method": "USE",
+        "path": "/skyframe-overlays"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/skyframe-overlay",
+        "description": "Render Skyframe overlay pack composition over footage"
+      },
+      {
+        "method": "POST",
+        "path": "/api/gami/generate"
+      },
+      {
+        "method": "POST",
+        "path": "/api/upload-image"
+      },
+      {
+        "method": "GET",
+        "path": "/api/scan-folder"
+      },
+      {
+        "method": "GET",
+        "path": "/api/fs/browse"
+      },
+      {
+        "method": "GET",
+        "path": "/api/local-image"
+      },
+      {
+        "method": "GET",
+        "path": "/api/local-text"
+      },
+      {
+        "method": "GET",
+        "path": "/api/scan-videos"
+      },
+      {
+        "method": "GET",
+        "path": "/api/local-video"
+      },
+      {
+        "method": "GET",
+        "path": "/api/probe-media"
+      },
+      {
+        "method": "POST",
+        "path": "/api/higgsfield/cost"
+      },
+      {
+        "method": "POST",
+        "path": "/api/higgsfield/upload"
+      },
+      {
+        "method": "POST",
+        "path": "/api/higgsfield/video"
+      },
+      {
+        "method": "GET",
+        "path": "/api/higgsfield/job/:id"
+      },
+      {
+        "method": "POST",
+        "path": "/api/blotato"
+      },
+      {
+        "method": "GET",
+        "path": "/api/postiz/integrations"
+      },
+      {
+        "method": "GET",
+        "path": "/api/postiz/find-slot/:id"
+      },
+      {
+        "method": "POST",
+        "path": "/api/postiz/upload-from-url"
+      },
+      {
+        "method": "POST",
+        "path": "/api/postiz/schedule"
+      },
+      {
+        "method": "GET",
+        "path": "/api/perf"
+      },
+      {
+        "method": "POST",
+        "path": "/api/perf/pull"
+      },
+      {
+        "method": "USE",
+        "path": "/carousels"
+      },
+      {
+        "method": "POST",
+        "path": "/api/carousel/render",
+        "description": "Run carousel render.py pipeline (slides from script JSON)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/ffmpeg/grade",
+        "description": "FFmpeg color grade pass"
+      },
+      {
+        "method": "POST",
+        "path": "/api/pop-beats"
+      },
+      {
+        "method": "POST",
+        "path": "/api/stack-video"
+      },
+      {
+        "method": "POST",
+        "path": "/api/ffmpeg/chroma-composite",
+        "description": "FFmpeg chroma-key character-over-slide composite"
+      },
+      {
+        "method": "POST",
+        "path": "/api/ffmpeg/chroma-stylize",
+        "description": "FFmpeg chroma-key + stylize pass"
+      },
+      {
+        "method": "USE",
+        "path": "/renders"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/composite",
+        "description": "Composite video into carousel slide art zones (CarouselVideoSlide)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/animate-terminal",
+        "description": "Render animated terminal carousel slide (TerminalCarouselSlide)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/skyframe-effect",
+        "description": "Render a single Skyframe effect composition"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/chroma-motion",
+        "description": "Remotion motion pass over chroma-keyed character footage"
+      },
+      {
+        "method": "POST",
+        "path": "/api/remotion/cartesian-composite",
+        "description": "Cartesian Composer — N timed overlay zones at % coords over a base video"
+      },
+      {
+        "method": "POST",
+        "path": "/api/concept-composer/save"
+      },
+      {
+        "method": "GET",
+        "path": "/api/concept-composer/list"
+      },
+      {
+        "method": "POST",
+        "path": "/api/hyperframes/overlay-caption"
+      },
+      {
+        "method": "GET",
+        "path": "/api/motion-bake/templates"
+      },
+      {
+        "method": "POST",
+        "path": "/api/motion-bake/plan"
+      },
+      {
+        "method": "POST",
+        "path": "/api/motion-bake/render"
+      },
+      {
+        "method": "POST",
+        "path": "/api/tunnel/start"
+      },
+      {
+        "method": "GET",
+        "path": "/api/tunnel/status"
+      },
+      {
+        "method": "POST",
+        "path": "/api/tunnel/stop"
+      },
+      {
+        "method": "POST",
+        "path": "/api/resolve-public-url"
+      },
+      {
+        "method": "POST",
+        "path": "/api/jobs"
+      },
+      {
+        "method": "GET",
+        "path": "/api/jobs"
+      },
+      {
+        "method": "GET",
+        "path": "/api/jobs/:id"
+      },
+      {
+        "method": "POST",
+        "path": "/api/jobs/:id/cancel"
+      },
+      {
+        "method": "POST",
+        "path": "/api/lifejournal/draft"
+      },
+      {
+        "method": "POST",
+        "path": "/api/lifejournal/propose"
+      },
+      {
+        "method": "GET",
+        "path": "/api/whatsapp/webhook"
+      },
+      {
+        "method": "POST",
+        "path": "/api/whatsapp/webhook"
+      },
+      {
+        "method": "POST",
+        "path": "/api/slack/webhook"
+      },
+      {
+        "method": "POST",
+        "path": "/api/proactive/fire",
+        "description": "Fire a named proactive Maestro turn (cron-driven outbound WhatsApp)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/broll/suggest",
+        "description": "LLM picks b-roll comps from pipeline/broll-catalog.json for a script"
+      },
+      {
+        "method": "POST",
+        "path": "/api/broll/render",
+        "description": "Render selected b-roll comps from the external Remotion repo"
+      },
+      {
+        "method": "POST",
+        "path": "/api/ares/generate"
+      },
+      {
+        "method": "POST",
+        "path": "/api/wire-buffer/:nodeId",
+        "description": "Write/clear canvas wire-buffer payload for a node (localhost only)"
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/wire-buffer/:nodeId",
+        "description": "Write/clear canvas wire-buffer payload for a node (localhost only)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/exec",
+        "streaming": true,
+        "description": "Run a local command, stream stdout/stderr via SSE (localhost only)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/exec/:jobId/stop",
+        "description": "Stop a running exec job (localhost only)"
+      },
+      {
+        "method": "GET",
+        "path": "/api/terminal/token"
+      },
+      {
+        "method": "GET",
+        "path": "/api/livekit/token",
+        "description": "Mint LiveKit access token for voice sessions"
+      },
+      {
+        "method": "USE",
+        "path": "/voice"
+      },
+      {
+        "method": "GET",
+        "path": "/api/ptt/stream",
+        "streaming": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/ptt/:state"
+      },
+      {
+        "method": "POST",
+        "path": "/api/voice/start",
+        "description": "Start the local voice agent (localhost only)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/voice/stop",
+        "description": "Stop the local voice agent (localhost only)"
+      },
+      {
+        "method": "GET",
+        "path": "/api/voice/status",
+        "description": "Voice agent status (localhost only)"
+      },
+      {
+        "method": "GET",
+        "path": "/api/arecibo/recap",
+        "description": "Build weekly-recap Arecibo cipher grid stats (localhost only)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/arecibo/render",
+        "description": "Render the Arecibo transmission decoder video (localhost only)"
+      }
+    ],
+    "remotionCompositions": [
+      {
+        "id": "Beat01-TheSpark",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat02-TheFailure",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat03-TheRebuild",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat04-TheArena",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat05-ClosedWorld",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat06-TheExperiment",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat07-TheDiscovery",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat08-TheMechanism",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat09-Convergence",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat10-ThePivot",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat11-Breakthrough",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat12-TheVision",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat13-WhereItStands",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Beat14-TheNorthStar",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "PhotoExperiment",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "Oracle-16gami",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "CarouselVideoSlide",
+        "durationInFrames": 150,
+        "fps": 30,
+        "width": 1080,
+        "height": 1350
+      },
+      {
+        "id": "CartesianComposer",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080,
+        "dynamic": true
+      },
+      {
+        "id": "TerminalCarouselSlide",
+        "durationInFrames": 600,
+        "fps": 30,
+        "width": 1080,
+        "height": 1350
+      },
+      {
+        "id": "CartesianGrid-Preview",
+        "durationInFrames": 60,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "CartesianGrid-Final",
+        "durationInFrames": 60,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "CartesianStage-Preview",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "CartesianStage-Final",
+        "durationInFrames": 300,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "CartesianCalibration",
+        "durationInFrames": 600,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "ChromaCompositeMotion",
+        "durationInFrames": 240,
+        "fps": 30,
+        "width": 1080,
+        "height": 1350
+      },
+      {
+        "id": "GamiBannerOverlay",
+        "durationInFrames": 1200,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920,
+        "dynamic": true
+      },
+      {
+        "id": "PracticeOverlay007",
+        "durationInFrames": 1164,
+        "fps": 24,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay008",
+        "durationInFrames": 1164,
+        "fps": 24,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay009",
+        "durationInFrames": 1164,
+        "fps": 24,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay010",
+        "durationInFrames": 1110,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920,
+        "dynamic": true
+      },
+      {
+        "id": "PracticeOverlay011",
+        "durationInFrames": 480,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay012",
+        "durationInFrames": 1110,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay013",
+        "durationInFrames": 930,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "PracticeOverlay014",
+        "durationInFrames": 810,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "AresFable5Overlay",
+        "durationInFrames": 1665,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "SkyframeOverlay",
+        "durationInFrames": 1500,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920,
+        "dynamic": true
+      },
+      {
+        "id": "SkyframeSingleEffect",
+        "durationInFrames": 150,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920,
+        "dynamic": true
+      },
+      {
+        "id": "AsciiPlanetShader",
+        "durationInFrames": 132,
+        "fps": 24,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "StoryboardSpine",
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "AreciboTransmission",
+        "fps": 30,
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "AudioVisualizer",
+        "durationInFrames": 900,
+        "fps": 30,
+        "width": 1080,
+        "height": 1920,
+        "dynamic": true
+      }
+    ],
+    "canvasNodes": [
+      "character",
+      "ingredient",
+      "type",
+      "generator",
+      "output",
+      "group",
+      "kie",
+      "blotato",
+      "gami",
+      "gami-art",
+      "niche-gen",
+      "ares-gen",
+      "ugc-gen",
+      "avatar-frame",
+      "char-scene",
+      "clip-splitter",
+      "ugc-video",
+      "carousel",
+      "vid-prompt",
+      "kie-img2vid",
+      "title-card",
+      "frame-sandwich",
+      "remotion-comp",
+      "ffmpeg-grade",
+      "chroma-composite",
+      "chroma-motion",
+      "chroma-stylize",
+      "live-preview",
+      "image-2",
+      "qc-gate",
+      "hyperframes",
+      "broll",
+      "video-source",
+      "cartesian",
+      "asset-sequence",
+      "motion-bake",
+      "skyframe-picker",
+      "cmd-runner",
+      "terminal",
+      "suno",
+      "mindwire",
+      "pixel-forge",
+      "sprite-forge",
+      "prd-lens",
+      "prd-prompt",
+      "prd-chat",
+      "prd-design",
+      "prd-render",
+      "pop-beats",
+      "stack-video",
+      "postiz",
+      "script-pinner",
+      "audio-viz",
+      "bokeh",
+      "concept-composer",
+      "prop-lab",
+      "arecibo-recap",
+      "conductor",
+      "sf-palette",
+      "sf-hero-identity",
+      "sf-taglines",
+      "sf-world-identity",
+      "sf-stats",
+      "sf-sidebar",
+      "sf-party",
+      "sf-actions",
+      "sf-asset-bands"
+    ],
+    "recipes": [
+      {
+        "id": "cybersec-truth-bomb",
+        "name": "Cybersec Truth Bomb",
+        "description": "Ray-Ban POV overlay for AI/security threat reels. 5-beat Skyframe template with cybersec anchor conventions: RayBanIntro hook → KaraokeCard threat actor → KaraokeCard pain bullets → Win95Terminal /audit payoff → AsciiPlanet tail → OpusGlisten chime on the last spoken word."
+      },
+      {
+        "id": "build-day-diary",
+        "name": "Build-Day Diary",
+        "description": "\"I shipped X today\" — terminal-heavy builder content. RayBanIntro hook → LowerThirdChyron names the tool → CompactCard /command → Win95Terminal output → AsciiPlanet tail → OpusGlisten on the impact word. Celebratory vibe, not threat-reveal."
+      },
+      {
+        "id": "plan-it-out",
+        "name": "Plan-It-Out",
+        "description": "\"3 things to do before you X\" — save-bait receipt list. RayBanIntro promise → StatCallout ×3 (numbered items) → AsciiPlanet → OpusGlisten on the save-trigger word. No terminal, no card chrome — pure stat-stack cadence. Chases the ≥20% save-rate north star."
+      },
+      {
+        "id": "hot-take",
+        "name": "Hot Take",
+        "description": "\"Everyone's wrong about X\" — contrarian commentary. RayBanIntro frame → KaraokeCard of the wrong take → CircleHighlight wraps the wrong word → TrashCompactor compresses it (whoosh!) → Win95Terminal types the corrected take → OpusGlisten on the contrarian word. The ONE recipe where whoosh is earned."
+      }
+    ],
+    "brollCatalog": {
+      "count": 97,
+      "items": [
+        {
+          "id": "AgreementTrap",
+          "slug": "agreement-trap",
+          "durationSec": 12
+        },
+        {
+          "id": "ArchitectBrain",
+          "slug": "architect-brain",
+          "durationSec": 6
+        },
+        {
+          "id": "ArchitectEvidence",
+          "slug": "architect-evidence",
+          "durationSec": 6
+        },
+        {
+          "id": "AresCrew",
+          "slug": "ares-crew",
+          "durationSec": 9
+        },
+        {
+          "id": "AresDifferent",
+          "slug": "ares-different",
+          "durationSec": 9
+        },
+        {
+          "id": "AresGetsBrain",
+          "slug": "ares-gets-brain",
+          "durationSec": 10
+        },
+        {
+          "id": "AresGetsSmarter",
+          "slug": "ares-gets-smarter",
+          "durationSec": 6
+        },
+        {
+          "id": "AresImmuneReveal",
+          "slug": "ares-immune-reveal",
+          "durationSec": 9
+        },
+        {
+          "id": "AresIntro",
+          "slug": "ares-intro",
+          "durationSec": 12
+        },
+        {
+          "id": "ArguesWithItself",
+          "slug": "argues-with-itself",
+          "durationSec": 9
+        },
+        {
+          "id": "AttackScenario",
+          "slug": "attack-scenario",
+          "durationSec": 10
+        },
+        {
+          "id": "AutoimmuneMetaphor",
+          "slug": "autoimmune-metaphor",
+          "durationSec": 10
+        },
+        {
+          "id": "AutoimmuneSpine",
+          "slug": "autoimmune-spine",
+          "durationSec": 11
+        },
+        {
+          "id": "BattleHardenedAi",
+          "slug": "battle-hardened-ai",
+          "durationSec": 9
+        },
+        {
+          "id": "BenchmarkCompare",
+          "slug": "benchmark-compare",
+          "durationSec": 6
+        },
+        {
+          "id": "BenchmarkInfra",
+          "slug": "benchmark-infra",
+          "durationSec": 10
+        },
+        {
+          "id": "BenchmarkShowdown",
+          "slug": "benchmark-showdown",
+          "durationSec": 9
+        },
+        {
+          "id": "BoringOnPurpose",
+          "slug": "boring-on-purpose",
+          "durationSec": 9
+        },
+        {
+          "id": "BuildJourney",
+          "slug": "build-journey",
+          "durationSec": 15
+        },
+        {
+          "id": "BuildingInPublic",
+          "slug": "building-in-public",
+          "durationSec": 9
+        },
+        {
+          "id": "CalibrationResult",
+          "slug": "calibration-result",
+          "durationSec": 10
+        },
+        {
+          "id": "ChatbotGenius",
+          "slug": "chatbot-genius",
+          "durationSec": 9
+        },
+        {
+          "id": "ConfidentAiV2",
+          "slug": "confident-ai-v2",
+          "durationSec": 14
+        },
+        {
+          "id": "ConfidentHallucination",
+          "slug": "confident-hallucination",
+          "durationSec": 13
+        },
+        {
+          "id": "ConfidentNoProof",
+          "slug": "confident-no-proof",
+          "durationSec": 9
+        },
+        {
+          "id": "ContextRot",
+          "slug": "context-rot",
+          "durationSec": 11
+        },
+        {
+          "id": "CoordinatorBouncer",
+          "slug": "coordinator-bouncer",
+          "durationSec": 9
+        },
+        {
+          "id": "CRTSubscribeOverlay",
+          "slug": "crt-subscribe",
+          "durationSec": 9
+        },
+        {
+          "id": "DataFlowNetwork",
+          "slug": "data-flow-network",
+          "durationSec": 9
+        },
+        {
+          "id": "DebateNotGuess",
+          "slug": "debate-not-guess",
+          "durationSec": 9
+        },
+        {
+          "id": "DebateRounds",
+          "slug": "debate-rounds",
+          "durationSec": 12
+        },
+        {
+          "id": "DeliberationCheck",
+          "slug": "deliberation-check",
+          "durationSec": 12
+        },
+        {
+          "id": "DeterministicRails",
+          "slug": "deterministic-rails",
+          "durationSec": 10
+        },
+        {
+          "id": "DevelopmentRoadmap",
+          "slug": "development-roadmap",
+          "durationSec": 9
+        },
+        {
+          "id": "DialecticalVsMonolithic",
+          "slug": "dialectical-vs-monolithic",
+          "durationSec": 12
+        },
+        {
+          "id": "EchoesOfWar",
+          "slug": "echoes-of-war",
+          "durationSec": 14
+        },
+        {
+          "id": "EngagementCTA",
+          "slug": "engagement-cta",
+          "durationSec": 9
+        },
+        {
+          "id": "EnterOrchestrator",
+          "slug": "enter-orchestrator",
+          "durationSec": 9
+        },
+        {
+          "id": "EvidenceExtractors",
+          "slug": "evidence-extractors",
+          "durationSec": 9
+        },
+        {
+          "id": "EvidenceOnly",
+          "slug": "evidence-only",
+          "durationSec": 14
+        },
+        {
+          "id": "FalsePositive",
+          "slug": "false-positive",
+          "durationSec": 10
+        },
+        {
+          "id": "ForcedHallucination",
+          "slug": "forced-hallucination",
+          "durationSec": 12
+        },
+        {
+          "id": "FreshAgents",
+          "slug": "fresh-agents",
+          "durationSec": 9
+        },
+        {
+          "id": "GrowthLoop",
+          "slug": "growth-loop",
+          "durationSec": 12
+        },
+        {
+          "id": "HashChainIntegrity",
+          "slug": "hash-chain-integrity",
+          "durationSec": 12
+        },
+        {
+          "id": "HonestAccurate",
+          "slug": "honest-accurate",
+          "durationSec": 6
+        },
+        {
+          "id": "HonestTrade",
+          "slug": "honest-trade",
+          "durationSec": 6
+        },
+        {
+          "id": "HypeVsSubstance",
+          "slug": "hype-vs-substance",
+          "durationSec": 13
+        },
+        {
+          "id": "ImmuneRecap",
+          "slug": "immune-recap",
+          "durationSec": 6
+        },
+        {
+          "id": "ImmuneSafeguards",
+          "slug": "immune-safeguards",
+          "durationSec": 16.8
+        },
+        {
+          "id": "InflammationControl",
+          "slug": "inflammation-control",
+          "durationSec": 13
+        },
+        {
+          "id": "InflammationFreeze",
+          "slug": "inflammation-freeze",
+          "durationSec": 12
+        },
+        {
+          "id": "IntuitionWarning",
+          "slug": "intuition-warning",
+          "durationSec": 11
+        },
+        {
+          "id": "JoinTheBuild",
+          "slug": "join-the-build",
+          "durationSec": 12
+        },
+        {
+          "id": "LlmBridge",
+          "slug": "llm-bridge",
+          "durationSec": 9
+        },
+        {
+          "id": "LlmIntegration",
+          "slug": "llm-integration",
+          "durationSec": 12
+        },
+        {
+          "id": "MemoryStream",
+          "slug": "memory-stream",
+          "durationSec": 9
+        },
+        {
+          "id": "ShatterConcept",
+          "slug": "shatter-concept",
+          "durationSec": 12
+        },
+        {
+          "id": "NarrativesVsEvidence",
+          "slug": "narratives-vs-evidence",
+          "durationSec": 9
+        },
+        {
+          "id": "NoBlackBox",
+          "slug": "no-black-box",
+          "durationSec": 9
+        },
+        {
+          "id": "OpenWorkshop",
+          "slug": "open-workshop",
+          "durationSec": 9
+        },
+        {
+          "id": "OracleTiebreaker",
+          "slug": "oracle-tiebreaker",
+          "durationSec": 12
+        },
+        {
+          "id": "OutsiderObsession",
+          "slug": "outsider-obsession",
+          "durationSec": 12
+        },
+        {
+          "id": "PainToPurpose",
+          "slug": "pain-to-purpose",
+          "durationSec": 14
+        },
+        {
+          "id": "PainfullyAverage",
+          "slug": "painfully-average",
+          "durationSec": 12
+        },
+        {
+          "id": "PainfullyAverageV2",
+          "slug": "painfully-average-v2",
+          "durationSec": 8
+        },
+        {
+          "id": "IdeaCollapse",
+          "slug": "idea-collapse",
+          "durationSec": 18
+        },
+        {
+          "id": "IdeaCollapseV2",
+          "slug": "idea-collapse-v2",
+          "durationSec": 16
+        },
+        {
+          "id": "IdeaCollapseV3",
+          "slug": "idea-collapse-v3",
+          "durationSec": 15
+        },
+        {
+          "id": "ProveNotLying",
+          "slug": "prove-not-lying",
+          "durationSec": 6
+        },
+        {
+          "id": "ProvenSystem",
+          "slug": "proven-system",
+          "durationSec": 12
+        },
+        {
+          "id": "RailsHeld",
+          "slug": "rails-held",
+          "durationSec": 9
+        },
+        {
+          "id": "RealAnalystLoop",
+          "slug": "real-analyst-loop",
+          "durationSec": 9
+        },
+        {
+          "id": "RebuiltReal",
+          "slug": "rebuilt-real",
+          "durationSec": 14
+        },
+        {
+          "id": "RebuiltRealV2",
+          "slug": "rebuilt-real-v2",
+          "durationSec": 9
+        },
+        {
+          "id": "RecursivePrompt",
+          "slug": "recursive-prompt",
+          "durationSec": 13.2
+        },
+        {
+          "id": "ScholarPrinciples",
+          "slug": "scholar-principles",
+          "durationSec": 9
+        },
+        {
+          "id": "ScholarSystem",
+          "slug": "scholar-system",
+          "durationSec": 10
+        },
+        {
+          "id": "SeekingHonesty",
+          "slug": "seeking-honesty",
+          "durationSec": 10
+        },
+        {
+          "id": "SelfVsNonself",
+          "slug": "self-vs-nonself",
+          "durationSec": 10
+        },
+        {
+          "id": "SkepticChallenge",
+          "slug": "skeptic-challenge",
+          "durationSec": 12
+        },
+        {
+          "id": "SkepticOracle",
+          "slug": "skeptic-oracle",
+          "durationSec": 11.4
+        },
+        {
+          "id": "SmokeAlarmLiar",
+          "slug": "smoke-alarm-liar",
+          "durationSec": 10
+        },
+        {
+          "id": "SmokeAlarmProblem",
+          "slug": "smoke-alarm-problem",
+          "durationSec": 9
+        },
+        {
+          "id": "StrategyPattern",
+          "slug": "strategy-pattern",
+          "durationSec": 10
+        },
+        {
+          "id": "SubscribeAndBuild",
+          "slug": "subscribe-and-build",
+          "durationSec": 9
+        },
+        {
+          "id": "SubscribeCTA",
+          "slug": "subscribe-cta",
+          "durationSec": 10
+        },
+        {
+          "id": "SystemCatchesIt",
+          "slug": "system-catches-it",
+          "durationSec": 6
+        },
+        {
+          "id": "TaughtToArgue",
+          "slug": "taught-to-argue",
+          "durationSec": 9
+        },
+        {
+          "id": "ThinkNotMatch",
+          "slug": "think-not-match",
+          "durationSec": 13
+        },
+        {
+          "id": "TransparentProcess",
+          "slug": "transparent-process",
+          "durationSec": 9
+        },
+        {
+          "id": "TridentArchitect",
+          "slug": "trident-architect",
+          "durationSec": 9
+        },
+        {
+          "id": "TridentIntro",
+          "slug": "trident-intro",
+          "durationSec": 13
+        },
+        {
+          "id": "UnderdogBegins",
+          "slug": "underdog-begins",
+          "durationSec": 9
+        },
+        {
+          "id": "WelcomeAres",
+          "slug": "welcome-ares",
+          "durationSec": 9
+        },
+        {
+          "id": "WhatsNext",
+          "slug": "whats-next",
+          "durationSec": 10
+        },
+        {
+          "id": "WindowGazer",
+          "slug": "window-gazer",
+          "durationSec": 9
+        }
+      ]
+    },
+    "carouselTemplates": [
+      {
+        "id": "plain-black",
+        "name": "Plain Black",
+        "description": "Pure black editorial, serif headlines with italic blue accents, monospace body, card grids"
+      },
+      {
+        "id": "plain-blue",
+        "name": "Plain Blue",
+        "description": "Dark navy editorial, serif headlines with italic blue accents, monospace body, card grids"
+      },
+      {
+        "id": "plain-white",
+        "name": "Plain White",
+        "description": "Clean white editorial, serif headlines with darker blue accents for contrast, monospace body, card grids"
+      },
+      {
+        "id": "skyframe",
+        "name": "Skyframe",
+        "description": "Particle network bg, Audiowide headlines, yellow/cyan accents, tech aesthetic"
+      },
+      {
+        "id": "windows-retro",
+        "name": "Windows Retro",
+        "description": "Classic Windows 95 desktop with Command Prompt terminal — story types into the prompt"
+      }
+    ],
+    "characters": {
+      "_comment": "Default characters only. User-added characters live in browser localStorage and are not covered by this manifest.",
+      "list": [
+        {
+          "id": "mia-chen",
+          "name": "Mia Chen",
+          "niche": "Beauty & Skincare UGC",
+          "hasCameo": false
+        },
+        {
+          "id": "jake-rivera",
+          "name": "Jake Rivera",
+          "niche": "Supplements & Vitamins UGC",
+          "hasCameo": false
+        }
+      ]
+    },
+    "cliVerbs": [
+      {
+        "cli": "pipeline-cli.js",
+        "verb": "carousel",
+        "description": "Render a carousel from a topic (--topic, template/length/live flags)",
+        "source": "curated"
+      },
+      {
+        "cli": "pipeline-cli.js",
+        "verb": "pop-beats",
+        "description": "Beat-mapped pop overlay pass on a video",
+        "source": "curated"
+      },
+      {
+        "cli": "pipeline-cli.js",
+        "verb": "stack",
+        "description": "Stack/composite videos into one output",
+        "source": "curated"
+      },
+      {
+        "cli": "pipeline-cli.js",
+        "verb": "image",
+        "description": "Generate an image via the kie.ai lane",
+        "source": "curated"
+      },
+      {
+        "cli": "pipeline-cli.js",
+        "verb": "broll",
+        "description": "Script → anchor frames → Kling 3.0 frame-sandwich b-roll videos",
+        "source": "curated"
+      },
+      {
+        "cli": "shortform-cli.js",
+        "verb": "quicktake",
+        "description": "Quicktake shortform: record → transcribe → overlay → composite",
+        "source": "curated"
+      },
+      {
+        "cli": "shortform-cli.js",
+        "verb": "process",
+        "description": "Process raw footage through the shortform pipeline",
+        "source": "curated"
+      },
+      {
+        "cli": "shortform-cli.js",
+        "verb": "longform",
+        "description": "Longform processor: POV/desk → graded mp4 + clips + metadata (--silence-cut variant)",
+        "source": "curated"
+      }
+    ],
+    "topics": [
+      {
+        "file": "ai-emergent-behavior.json",
+        "topicCount": 30
+      },
+      {
+        "file": "cybersecurity.json",
+        "topicCount": 30
+      }
+    ],
+    "skills": {
+      "skills": [
+        "breadstick-build-day-diary",
+        "breadstick-cybersec-truth-bomb",
+        "breadstick-hot-take",
+        "breadstick-plan-it-out",
+        "breadstick-skyframe-template"
+      ],
+      ".claude/skills": []
+    }
+  }
+}

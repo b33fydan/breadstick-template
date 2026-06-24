@@ -1,0 +1,28 @@
+.ws-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1;
+}
+.ws-strip-pill {
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: var(--bg-panel);
+  color: var(--text);
+  white-space: nowrap;
+}
+.ws-strip-muted { opacity: 0.65; }
+.ws-strip-jobs {
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ws-strip-error-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d08a2f;
+}

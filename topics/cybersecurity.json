@@ -1,0 +1,250 @@
+{
+  "_framing": "Defensive security education for blue-team awareness content. Blue-team only. These topics describe real attack patterns solely to teach detection, mitigation, and defense to a general audience — never to provide offensive tooling or operational how-to.",
+  "niche": "cybersecurity",
+  "voice": "Technical but accessible. Explain like a senior engineer briefing a sharp junior. No fear-mongering, no clickbait panic. Show the attack, explain why it works, give the mitigation. Respect the audience's intelligence.",
+  "template": "plain-blue",
+  "account": "@yourhandle",
+  "cadence": "12h",
+  "topics": [
+    {
+      "id": 1,
+      "hook": "Every AI you trust is whispering to strangers.",
+      "angle": "Prompt injection attacks on LLM-powered agents",
+      "depth": "What prompt injection is, 3 real attack vectors (indirect injection via web content, data exfiltration via tool calls, instruction override via context), and how to mitigate with input sanitization and output filtering.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 2,
+      "hook": "Your API keys are in your git history right now.",
+      "angle": "Secret sprawl in version control",
+      "depth": "How secrets end up in repos (env files, config commits, copy-paste), tools that scan for them (truffleHog, gitleaks, GitHub secret scanning), and the cleanup process (rotate, not just delete).",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 3,
+      "hook": "One employee clicked a link. The whole company went dark.",
+      "angle": "Anatomy of a modern ransomware attack",
+      "depth": "Initial access (phishing), lateral movement (credential harvesting, RDP), exfiltration before encryption, double extortion model. End with the 3-2-1 backup rule and network segmentation.",
+      "slides": 9,
+      "posted": false
+    },
+    {
+      "id": 4,
+      "hook": "Your password is not your weakest link. Your phone number is.",
+      "angle": "SIM swapping and MFA bypass",
+      "depth": "How SIM swaps work (social engineering carrier support), why SMS-based 2FA is broken, hardware keys vs authenticator apps, and why your phone number is a public key to your identity.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 5,
+      "hook": "The WiFi at your hotel is a confession booth.",
+      "angle": "Evil twin attacks and public network risks",
+      "depth": "How rogue access points work, SSL stripping, credential harvesting on captive portals. Mitigation: VPN, HTTPS-only mode, forget networks after use.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 6,
+      "hook": "They didn't hack the company. They hacked the vendor.",
+      "angle": "Supply chain attacks",
+      "depth": "SolarWinds, Codecov, Log4Shell pattern. How trusted dependencies become attack vectors. SBOM (Software Bill of Materials), dependency pinning, vendor security assessments.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 7,
+      "hook": "Your browser extensions can see everything you type.",
+      "angle": "Browser extension permissions and data harvesting",
+      "depth": "What 'read and change all data on all websites' actually means, how extensions exfiltrate form data, and the review process that misses malicious updates. Audit your extensions.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 8,
+      "hook": "The most dangerous hacker on earth uses a spreadsheet.",
+      "angle": "Social engineering: the human exploit",
+      "depth": "Pretexting, authority bias, urgency triggers, CEO fraud / BEC. Why technical controls fail against human psychology. Training and verification culture as the real defense.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 9,
+      "hook": "Your smart home is a surveillance network you built yourself.",
+      "angle": "IoT device security and home network exposure",
+      "depth": "Default credentials on cameras/routers, UPnP exposure, firmware update gaps, network segmentation for IoT. The Mirai botnet as a case study.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 10,
+      "hook": "Zero-day doesn't mean what you think it means.",
+      "angle": "Vulnerability lifecycle: from discovery to exploitation",
+      "depth": "What zero-day actually means (no patch available), CVE process, responsible disclosure vs drop, patch gap exploitation. Why 'just patch' is not a strategy.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 11,
+      "hook": "DNS is the phonebook of the internet. And it's lying to you.",
+      "angle": "DNS poisoning and hijacking",
+      "depth": "How DNS resolution works, cache poisoning attacks, DNS hijacking via compromised routers, BGP hijacks. DNSSEC, DoH, DoT as mitigations.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 12,
+      "hook": "Your cloud is someone else's computer. And they left the door open.",
+      "angle": "Cloud misconfigurations as attack surface",
+      "depth": "Public S3 buckets, exposed Kubernetes dashboards, overprivileged IAM roles. Capital One breach as case study. CSPM tools, least privilege, infrastructure as code.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 13,
+      "hook": "Encryption doesn't protect you if they already have the key.",
+      "angle": "Key management failures",
+      "depth": "Hardcoded keys, key rotation neglect, symmetric vs asymmetric misuse, HSMs and key vaults. Why encryption is only as strong as your key lifecycle.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 14,
+      "hook": "The breach happened 6 months ago. You just don't know yet.",
+      "angle": "Dwell time and detection gaps",
+      "depth": "Average dwell time statistics, why attackers persist quietly, lateral movement and data staging. SIEM, EDR, threat hunting, and the importance of logging.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 15,
+      "hook": "Your Docker container is running as root. That's the whole problem.",
+      "angle": "Container security fundamentals",
+      "depth": "Root in containers, image vulnerabilities, runtime escapes. Distroless images, read-only filesystems, security contexts. The principle of least privilege applied to containers.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 16,
+      "hook": "They cloned your voice with 3 seconds of audio.",
+      "angle": "AI-powered social engineering: deepfake voice and video",
+      "depth": "Voice cloning tech maturity, real cases of CEO voice fraud, video deepfakes in real-time calls. Verification protocols, callback procedures, codewords.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 17,
+      "hook": "Your login page is the front door. CORS is the window you left open.",
+      "angle": "Cross-origin attacks: CORS, CSRF, XSS",
+      "depth": "What same-origin policy protects, how misconfigured CORS headers expose APIs, CSRF token bypass, stored vs reflected XSS. Content Security Policy as defense.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 18,
+      "hook": "The backup worked. The restore didn't.",
+      "angle": "Backup verification and disaster recovery testing",
+      "depth": "Untested backups are not backups. Corruption, encryption key loss, restore time assumptions. Tabletop exercises, automated restore testing, RPO vs RTO.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 19,
+      "hook": "Rate limiting is not security. It's a speed bump.",
+      "angle": "API security beyond authentication",
+      "depth": "Broken object-level authorization (BOLA), mass assignment, excessive data exposure. OWASP API Top 10. Schema validation, field-level authorization, API gateways.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 20,
+      "hook": "Your CI/CD pipeline is the most powerful machine in your company. And nobody's watching it.",
+      "angle": "CI/CD pipeline security",
+      "depth": "Pipeline poisoning, secret exposure in build logs, dependency confusion in package managers, compromised GitHub Actions. Pipeline hardening, OIDC tokens, signed artifacts.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 21,
+      "hook": "The firewall is a castle wall. The attacker is already inside.",
+      "angle": "Zero trust architecture",
+      "depth": "Why perimeter security fails, lateral movement after initial access. Zero trust principles: verify explicitly, least privilege, assume breach. BeyondCorp model, microsegmentation.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 22,
+      "hook": "You gave the AI agent a tool. It used it against you.",
+      "angle": "Tool use abuse in AI agent systems",
+      "depth": "When agents misuse file system access, web browsing, code execution. Confused deputy attacks on agents. Sandboxing, capability restrictions, human-in-the-loop gates.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 23,
+      "hook": "JWT tokens are not encrypted. They're base64 encoded. There's a difference.",
+      "angle": "JWT misuse and token security",
+      "depth": "JWTs are signed not encrypted, algorithm confusion attacks (none, HS256/RS256 swap), token expiry neglect, refresh token rotation. Proper JWT validation.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 24,
+      "hook": "The compliance checkbox is green. The infrastructure is on fire.",
+      "angle": "Compliance vs actual security posture",
+      "depth": "Why passing SOC 2/ISO 27001 doesn't mean you're secure. Checkbox culture, audit theater, gap between policy and practice. Continuous validation over point-in-time audits.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 25,
+      "hook": "Open source saved your project. Open source can also end it.",
+      "angle": "Open source dependency risks",
+      "depth": "Typosquatting, maintainer account takeover, protestware (colors.js, node-ipc). Lockfiles, dependency review, Sigstore signing, reproducible builds.",
+      "slides": 8,
+      "posted": false
+    },
+    {
+      "id": 26,
+      "hook": "Phishing emails don't look like phishing emails anymore.",
+      "angle": "AI-generated phishing: the new wave",
+      "depth": "LLMs generating perfect grammar, personalized context from LinkedIn/social, spear phishing at scale. Why traditional 'look for typos' advice is dead. Behavioral analysis, link sandboxing.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 27,
+      "hook": "Your database query is running code you didn't write.",
+      "angle": "SQL injection in 2026",
+      "depth": "How SQLi still exists (string concatenation, ORMs bypassed), second-order injection, blind SQLi. Parameterized queries, WAFs, the principle that user input is never trusted.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 28,
+      "hook": "The VPN protects your traffic. It doesn't protect your endpoints.",
+      "angle": "Endpoint security vs network security",
+      "depth": "VPN tunnel vision — encrypted traffic but compromised devices. EDR, device posture checks, conditional access. Why VPN alone is insufficient for remote work security.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 29,
+      "hook": "Logging everything is not monitoring. It's hoarding.",
+      "angle": "Effective security monitoring and alerting",
+      "depth": "Alert fatigue, log volume vs signal quality, SIEM tuning. Detection engineering, MITRE ATT&CK mapping, actionable runbooks over raw alerts.",
+      "slides": 7,
+      "posted": false
+    },
+    {
+      "id": 30,
+      "hook": "The attacker didn't bypass your auth. They stole the session cookie.",
+      "angle": "Session hijacking and cookie security",
+      "depth": "Session fixation, cookie theft via XSS, pass-the-cookie attacks. HttpOnly, Secure, SameSite flags, short-lived sessions, device binding.",
+      "slides": 7,
+      "posted": false
+    }
+  ]
+}

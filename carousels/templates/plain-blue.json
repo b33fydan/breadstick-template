@@ -1,0 +1,48 @@
+{
+  "id": "plain-blue",
+  "name": "Plain Blue",
+  "description": "Dark navy editorial, serif headlines with italic blue accents, monospace body, card grids",
+  "fonts": {
+    "headline": "PlayfairDisplay-Bold.ttf",
+    "headline_italic": "PlayfairDisplay-BoldItalic.ttf",
+    "body": "SpaceMono-Regular.ttf",
+    "body_bold": "SpaceMono-Bold.ttf",
+    "chrome": "SpaceMono-Regular.ttf",
+    "chrome_bold": "SpaceMono-Bold.ttf",
+    "hand": null
+  },
+  "font_sizes": {
+    "headline_xl": 108,
+    "headline_lg": 80,
+    "headline_md": 60,
+    "headline_sm": 44,
+    "body_lg": 38,
+    "body": 34,
+    "body_sm": 28,
+    "chrome": 22,
+    "caption": 24
+  },
+  "colors": {
+    "dark": {
+      "bg": "#111122",
+      "text": "#e8e8e8",
+      "text_muted": "#777799",
+      "accent": "#5588ff",
+      "accent_secondary": "#5588ff",
+      "border": "#2a2a44",
+      "tag_outline": "#5588ff"
+    }
+  },
+  "background": {
+    "style": "flat"
+  },
+  "chrome": {
+    "tag_style": "inline_header",
+    "header_format": "* {tag}  ·  {topic}",
+    "slide_counter": true,
+    "progress_bar": true,
+    "blockquote_body": true,
+    "accent_italic": true
+  },
+  "slide_types": ["hook", "body", "image_body", "feature_grid", "cta", "cta_follow"]
+}
