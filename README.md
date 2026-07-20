@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/breadstick-hero.jpg" alt="Breadstick Buddy — papercraft diorama of a breadstick with headphones walking the trail toward a UGC studio" width="100%">
+</p>
+
 # Breadstick
 
 **An AI-influencer script & content factory you run yourself.** Pick a character, mix
@@ -11,6 +15,16 @@ you configure. No telemetry, no accounts, no middleman.
 
 > This repository is a **GitHub template**. Click **“Use this template”** to get your own
 > independent copy with a clean history, then make it yours.
+
+## Join the community
+
+Breadstick is built in public. The free Skool community is where the recipes,
+build-alongs, and **Node of the Week** live — and where you show off what you
+built with yours:
+
+**→ [Breadstick.ai on Skool](https://www.skool.com/breadstickai-4481)** — free to join.
+
+Clone it, break it, rebuild it, and come tell us what happened.
 
 ## Quick start
 
