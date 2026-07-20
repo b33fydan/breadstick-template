@@ -7,6 +7,10 @@ useDefault = true
 
 [allowlist]
 description = "Benign UI/localStorage keys and test fixtures — not secrets"
+paths = [
+  # Empty-value placeholders (VAR_NAME=) — the var names alone trip generic-api-key
+  '''\.env\.example''',
+]
 regexes = [
   # localStorage UI-state key (NodePalette collapse state), not a credential
   '''cv-palette-categories-v2''',

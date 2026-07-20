@@ -15,6 +15,8 @@ import { spawn as ptySpawn } from 'node-pty';
 import { TEMPLATES as MOTION_BAKE_TEMPLATES, TEMPLATE_CATALOG as MOTION_BAKE_CATALOG } from './pipeline/motion-bake/templates/index.js';
 import crypto from 'crypto';
 import { parseAgentCommand, routeAgentCommand, HELP_TEXT as AGENT_HELP_TEXT } from './server/agentRouter.js';
+import { localBrowserOnly, notViaTunnel } from './server/tunnelGuard.js';
+import { resolveBindHost } from './server/bindHost.js';
 import { createJobQueue } from './server/jobQueue.js';
 import { createJobTypes } from './server/jobTypes.js';
 import { createDiary } from './server/lifejournal/diary.js';
@@ -269,7 +271,7 @@ const KIE_UPLOAD_MIME_BY_EXT = {
   png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
   webp: 'image/webp', gif: 'image/gif',
 };
-app.post('/api/kie/upload-file', async (req, res) => {
+app.post('/api/kie/upload-file', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { apiKey: bodyKey, path: filePath, uploadPath = 'breadstick-frames' } = req.body;
   const apiKey = bodyKey || process.env.KIE_API_KEY;
   if (!apiKey) return res.status(400).json({ error: 'API key required' });
@@ -701,7 +703,7 @@ app.post('/api/gami/generate', async (req, res) => {
 
 // Upload a local image to get a public URL for external APIs (Kling, etc.)
 // Tries catbox.moe first, falls back to tmpfiles.org, then 0x0.st
-app.post('/api/upload-image', async (req, res) => {
+app.post('/api/upload-image', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { path: filePath } = req.body;
   if (!filePath) return res.status(400).json({ error: 'path required' });
   if (!existsSync(filePath)) return res.status(404).json({ error: 'File not found: ' + filePath });
@@ -753,7 +755,7 @@ app.post('/api/upload-image', async (req, res) => {
 });
 
 // Scan a local folder for images — returns sorted list of image files
-app.get('/api/scan-folder', async (req, res) => {
+app.get('/api/scan-folder', notViaTunnel, localBrowserOnly, async (req, res) => {
   const folderPath = req.query.path;
   if (!folderPath) return res.status(400).json({ error: 'path query param required' });
   if (!existsSync(folderPath)) return res.status(404).json({ error: 'Folder not found' });
@@ -780,7 +782,7 @@ const FS_BROWSE_SKIP_DIRS = new Set([
   'crystals', 'external', 'dist', '.next', 'coverage', 'wire-buffer',
 ]);
 
-app.get('/api/fs/browse', async (req, res) => {
+app.get('/api/fs/browse', notViaTunnel, localBrowserOnly, async (req, res) => {
   const reqPath = req.query.path || __dirname;
   const extFilter = String(req.query.ext || '')
     .toLowerCase()
@@ -833,7 +835,7 @@ app.get('/api/fs/browse', async (req, res) => {
 });
 
 // Serve local files for Avatar Frame — accepts absolute paths
-app.get('/api/local-image', async (req, res) => {
+app.get('/api/local-image', notViaTunnel, localBrowserOnly, async (req, res) => {
   const filePath = req.query.path;
   if (!filePath) return res.status(400).json({ error: 'path query param required' });
   const resolved = join(filePath); // normalize
@@ -848,7 +850,7 @@ app.get('/api/local-image', async (req, res) => {
 // server from accidentally loading huge binaries into memory.
 const MIND_WIRE_MAX_BYTES = 1024 * 1024;   // 1MB
 
-app.get('/api/local-text', async (req, res) => {
+app.get('/api/local-text', notViaTunnel, localBrowserOnly, async (req, res) => {
   const filePath = req.query.path;
   if (!filePath) return res.status(400).json({ error: 'path query param required' });
   if (!existsSync(filePath)) return res.status(404).json({ error: 'File not found' });
@@ -870,7 +872,7 @@ app.get('/api/local-text', async (req, res) => {
 // Scan a folder for video files. Used by VideoSourceNode to populate the
 // "recent renders" dropdown so the operator can pick local videos without typing the
 // full path.
-app.get('/api/scan-videos', async (req, res) => {
+app.get('/api/scan-videos', notViaTunnel, localBrowserOnly, async (req, res) => {
   const folderPath = req.query.path;
   if (!folderPath) return res.status(400).json({ error: 'path query param required' });
   if (!existsSync(folderPath)) return res.status(404).json({ error: 'Folder not found' });
@@ -897,7 +899,7 @@ app.get('/api/scan-videos', async (req, res) => {
 // Serve a local video file (analog of /api/local-image) — used by
 // VideoSourceNode to make a chosen local path consumable by downstream
 // nodes (Hyperframes, B-roll, FFmpeg grade) which expect URL-like sources.
-app.get('/api/local-video', async (req, res) => {
+app.get('/api/local-video', notViaTunnel, localBrowserOnly, async (req, res) => {
   const filePath = req.query.path;
   if (!filePath) return res.status(400).json({ error: 'path query param required' });
   if (!existsSync(filePath)) return res.status(404).json({ error: 'File not found' });
@@ -911,7 +913,7 @@ app.get('/api/local-video', async (req, res) => {
 // nodes inherit `{ duration: 0, width: 0, height: 0 }` placeholders and
 // either over-render (producing a frozen tail when the base file is shorter
 // than the claimed duration) or skip aspect-aware behavior entirely.
-app.get('/api/probe-media', async (req, res) => {
+app.get('/api/probe-media', notViaTunnel, localBrowserOnly, async (req, res) => {
   const filePath = req.query.path;
   if (!filePath) return res.status(400).json({ error: 'path query param required' });
   if (!existsSync(filePath)) return res.status(404).json({ error: 'File not found' });
@@ -1006,7 +1008,7 @@ app.post('/api/higgsfield/cost', async (req, res) => {
 
 // Explicit upload (returns upload_id chainable to subsequent jobs).
 // Body: { path } — absolute path to local image / video / audio file.
-app.post('/api/higgsfield/upload', async (req, res) => {
+app.post('/api/higgsfield/upload', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { path: filePath } = req.body || {};
   if (!filePath) return res.status(400).json({ error: 'path required' });
   if (!existsSync(filePath)) return res.status(404).json({ error: `file not found: ${filePath}` });
@@ -2051,7 +2053,7 @@ print('ok')
 // + the terminal content config + a palette, and renders a typing-animation
 // mp4 via the TerminalCarouselSlide Remotion composition. Output is a single
 // mp4 per slide that can be posted as Reels.
-app.post('/api/remotion/animate-terminal', async (req, res) => {
+app.post('/api/remotion/animate-terminal', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { slidePath, terminalZone, terminal, palette, name, slideIdx, templateId } = req.body;
   if (!slidePath || !terminalZone || !terminal || !name) {
     return res.status(400).json({ error: 'slidePath, terminalZone, terminal, and name required' });
@@ -3379,7 +3381,7 @@ app.post('/api/tunnel/stop', (req, res) => {
 });
 
 // Resolve a local image path to a public URL (tunnel or upload fallback)
-app.post('/api/resolve-public-url', async (req, res) => {
+app.post('/api/resolve-public-url', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { path: filePath } = req.body;
   if (!filePath) return res.status(400).json({ error: 'path required' });
 
@@ -3766,7 +3768,7 @@ const shipGit = {
     return new Promise((res, rej) => {
       execFile('git', ['-c', 'credential.helper=', ...args], { cwd, signal, timeout: SHIP_GIT_TIMEOUT_MS, env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GCM_INTERACTIVE: 'never' }, maxBuffer: 16 * 1024 * 1024 }, (err, stdout, stderr) => {
         if (err) {
-          const scrubbed = String(stderr || err.message).split(SHIP_GH_TOKEN || ' nope ').join('***');
+          const scrubbed = String(stderr || err.message).split(SHIP_GH_TOKEN || '\0nope\0').join('***');
           return rej(new Error(scrubbed.slice(-400)));
         }
         res(stdout);
@@ -4820,7 +4822,7 @@ Pick the cuts. JSON only.`;
   }
 });
 
-app.post('/api/broll/render', async (req, res) => {
+app.post('/api/broll/render', notViaTunnel, localBrowserOnly, async (req, res) => {
   const { videoPath, plan, name } = req.body || {};
   if (!videoPath || !plan?.cuts) return res.status(400).json({ error: 'videoPath and plan.cuts required' });
   if (plan.cuts.length === 0) return res.status(400).json({ error: 'plan has no cuts' });
@@ -5853,7 +5855,7 @@ server.on('upgrade', (req, socket, head) => {
   });
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, resolveBindHost(), () => {
   console.log(`Breadstick API proxy running on http://localhost:${PORT}`);
   console.log(`[ws/terminal] auth token issued — fetch via GET /api/terminal/token (localhost-only)`);
   registerProactiveSchedules();
