@@ -206,7 +206,7 @@ def build():
     # ── 5. Skills
     story.append(Paragraph("5 · Formalize every repeat workflow as a Skill", H2))
     story.append(Paragraph(
-        "You already did this with <b>/ares-knowledge</b>, <b>builderpack</b>, and the carousel pipeline. "
+        "You already did this with <b>/project-knowledge</b>, <b>builderpack</b>, and the carousel pipeline. "
         "But the workflow that lands you the most 'essential' ratings — the epic-batch kickoff — is still "
         "ad-hoc. Turning it into a slash command stops you from re-typing the same scaffold five times a week.",
         BODY,
@@ -324,7 +324,7 @@ def build():
     ))
     story.append(Paragraph("Obsidian-backed cross-session memory", H3))
     story.append(Paragraph(
-        "Extend your /ares-knowledge skill into a full SessionStart/SessionEnd hook pair: one distills "
+        "Extend your /project-knowledge skill into a full SessionStart/SessionEnd hook pair: one distills "
         "every transcript into atomic notes, the other injects the 10 most relevant notes for the "
         "current project at session start. No more re-discovering that 0x0.st 503s.",
         BODY,

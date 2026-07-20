@@ -42,7 +42,7 @@ describe('build_manifest', () => {
     const s = manifest.sections;
     for (const key of SECTION_KEYS) expect(s).toHaveProperty(key);
     expect(s.serverRoutes.length).toBeGreaterThan(50);
-    expect(s.remotionCompositions.length).toBeGreaterThanOrEqual(30);
+    expect(s.remotionCompositions.length).toBeGreaterThanOrEqual(20);
     expect(s.canvasNodes.length).toBeGreaterThanOrEqual(40);
     expect(s.recipes.length).toBeGreaterThanOrEqual(3);
     expect(s.brollCatalog.count).toBeGreaterThanOrEqual(90);
@@ -81,14 +81,14 @@ describe('build_manifest', () => {
     const comps = manifest.sections.remotionCompositions;
     const cartesian = comps.find((c) => c.id === 'CartesianComposer');
     expect(cartesian?.dynamic).toBe(true);
-    const beat = comps.find((c) => c.id === 'Beat01-TheSpark');
-    expect(beat).toMatchObject({ width: 1920, height: 1080, fps: 30, durationInFrames: 300 });
+    const overlay = comps.find((c) => c.id === 'SkyframeOverlay');
+    expect(overlay).toMatchObject({ width: 1080, height: 1920, fps: 30, durationInFrames: 1500 });
   });
 
   it('follows the SF_CHUNK_TYPES spread in the canvas nodeTypes registry', () => {
     const nodes = manifest.sections.canvasNodes;
     expect(nodes).toContain('generator');
-    expect(nodes).toContain('concept-composer');
+    expect(nodes).toContain('qc-gate');
     expect(nodes.some((n) => n.startsWith('sf-'))).toBe(true);
   });
 

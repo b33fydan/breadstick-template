@@ -1,7 +1,9 @@
 {
   "version": 1,
-  "generated": "2026-06-24T04:41:33.145Z",
-  "warnings": [],
+  "generated": "2026-07-20T13:12:05.126Z",
+  "warnings": [
+    "skills: .claude/skills unreadable (ENOENT: no such file or directory, scandir 'C:\\Users\\danny\\AppData\\Local\\Temp\\claude\\E--breadstick\\f53272e5-5f91-4eef-a375-44d16f1ded7e\\scratchpad\\template-june\\.claude\\skills')"
+  ],
   "sections": {
     "serverRoutes": [
       {
@@ -317,10 +319,6 @@
       },
       {
         "method": "POST",
-        "path": "/api/ares/generate"
-      },
-      {
-        "method": "POST",
         "path": "/api/wire-buffer/:nodeId",
         "description": "Write/clear canvas wire-buffer payload for a node (localhost only)"
       },
@@ -389,104 +387,6 @@
       }
     ],
     "remotionCompositions": [
-      {
-        "id": "Beat01-TheSpark",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat02-TheFailure",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat03-TheRebuild",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat04-TheArena",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat05-ClosedWorld",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat06-TheExperiment",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat07-TheDiscovery",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat08-TheMechanism",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat09-Convergence",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat10-ThePivot",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat11-Breakthrough",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat12-TheVision",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat13-WhereItStands",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "id": "Beat14-TheNorthStar",
-        "durationInFrames": 300,
-        "fps": 30,
-        "width": 1920,
-        "height": 1080
-      },
       {
         "id": "PhotoExperiment",
         "durationInFrames": 300,
@@ -631,13 +531,6 @@
         "height": 1920
       },
       {
-        "id": "AresFable5Overlay",
-        "durationInFrames": 1665,
-        "fps": 30,
-        "width": 1080,
-        "height": 1920
-      },
-      {
         "id": "SkyframeOverlay",
         "durationInFrames": 1500,
         "fps": 30,
@@ -693,7 +586,6 @@
       "gami",
       "gami-art",
       "niche-gen",
-      "ares-gen",
       "ugc-gen",
       "avatar-frame",
       "char-scene",
@@ -736,8 +628,6 @@
       "script-pinner",
       "audio-viz",
       "bokeh",
-      "concept-composer",
-      "prop-lab",
       "arecibo-recap",
       "conductor",
       "sf-palette",
@@ -773,7 +663,7 @@
       }
     ],
     "brollCatalog": {
-      "count": 97,
+      "count": 90,
       "items": [
         {
           "id": "AgreementTrap",
@@ -789,36 +679,6 @@
           "id": "ArchitectEvidence",
           "slug": "architect-evidence",
           "durationSec": 6
-        },
-        {
-          "id": "AresCrew",
-          "slug": "ares-crew",
-          "durationSec": 9
-        },
-        {
-          "id": "AresDifferent",
-          "slug": "ares-different",
-          "durationSec": 9
-        },
-        {
-          "id": "AresGetsBrain",
-          "slug": "ares-gets-brain",
-          "durationSec": 10
-        },
-        {
-          "id": "AresGetsSmarter",
-          "slug": "ares-gets-smarter",
-          "durationSec": 6
-        },
-        {
-          "id": "AresImmuneReveal",
-          "slug": "ares-immune-reveal",
-          "durationSec": 9
-        },
-        {
-          "id": "AresIntro",
-          "slug": "ares-intro",
-          "durationSec": 12
         },
         {
           "id": "ArguesWithItself",
@@ -1243,11 +1103,6 @@
         {
           "id": "UnderdogBegins",
           "slug": "underdog-begins",
-          "durationSec": 9
-        },
-        {
-          "id": "WelcomeAres",
-          "slug": "welcome-ares",
           "durationSec": 9
         },
         {

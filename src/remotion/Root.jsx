@@ -1,19 +1,5 @@
 import React from 'react';
 import {Composition} from 'remotion';
-import {BeatTheSpark} from './compositions/BeatTheSpark';
-import {Beat02Failure} from './compositions/Beat02Failure';
-import {Beat03Rebuild} from './compositions/Beat03Rebuild';
-import {Beat04Arena} from './compositions/Beat04Arena';
-import {Beat05ClosedWorld} from './compositions/Beat05ClosedWorld';
-import {Beat06Experiment} from './compositions/Beat06Experiment';
-import {Beat07Discovery} from './compositions/Beat07Discovery';
-import {Beat08Mechanism} from './compositions/Beat08Mechanism';
-import {Beat09Convergence} from './compositions/Beat09Convergence';
-import {Beat10Pivot} from './compositions/Beat10Pivot';
-import {Beat11Breakthrough} from './compositions/Beat11Breakthrough';
-import {Beat12Vision} from './compositions/Beat12Vision';
-import {Beat13Stands} from './compositions/Beat13Stands';
-import {Beat14NorthStar} from './compositions/Beat14NorthStar';
 import {PhotoExperiment} from './compositions/PhotoExperiment';
 import {Oracle16gami} from './compositions/Oracle16gami';
 import {CarouselVideoSlide} from './compositions/CarouselVideoSlide';
@@ -31,7 +17,6 @@ import {PracticeOverlay011} from './compositions/PracticeOverlay011';
 import {PracticeOverlay012} from './compositions/PracticeOverlay012';
 import {PracticeOverlay013} from './compositions/PracticeOverlay013';
 import {PracticeOverlay014} from './compositions/PracticeOverlay014';
-import {AresFable5Overlay} from './compositions/AresFable5Overlay';
 import {SkyframeOverlay} from './compositions/SkyframeOverlay';
 import {SkyframeSingleEffect} from './compositions/SkyframeSingleEffect';
 import {AsciiPlanetShader} from './compositions/AsciiPlanetShader';
@@ -49,20 +34,6 @@ const DEFAULTS = {
 export const RemotionRoot = () => {
   return (
     <>
-      <Composition id="Beat01-TheSpark" component={BeatTheSpark} {...DEFAULTS} />
-      <Composition id="Beat02-TheFailure" component={Beat02Failure} {...DEFAULTS} />
-      <Composition id="Beat03-TheRebuild" component={Beat03Rebuild} {...DEFAULTS} />
-      <Composition id="Beat04-TheArena" component={Beat04Arena} {...DEFAULTS} />
-      <Composition id="Beat05-ClosedWorld" component={Beat05ClosedWorld} {...DEFAULTS} />
-      <Composition id="Beat06-TheExperiment" component={Beat06Experiment} {...DEFAULTS} />
-      <Composition id="Beat07-TheDiscovery" component={Beat07Discovery} {...DEFAULTS} />
-      <Composition id="Beat08-TheMechanism" component={Beat08Mechanism} {...DEFAULTS} />
-      <Composition id="Beat09-Convergence" component={Beat09Convergence} {...DEFAULTS} />
-      <Composition id="Beat10-ThePivot" component={Beat10Pivot} {...DEFAULTS} />
-      <Composition id="Beat11-Breakthrough" component={Beat11Breakthrough} {...DEFAULTS} />
-      <Composition id="Beat12-TheVision" component={Beat12Vision} {...DEFAULTS} />
-      <Composition id="Beat13-WhereItStands" component={Beat13Stands} {...DEFAULTS} />
-      <Composition id="Beat14-TheNorthStar" component={Beat14NorthStar} {...DEFAULTS} />
       <Composition id="PhotoExperiment" component={PhotoExperiment} {...DEFAULTS} />
       <Composition id="Oracle-16gami" component={Oracle16gami} durationInFrames={300} fps={30} width={1080} height={1920} />
       <Composition
@@ -320,14 +291,6 @@ export const RemotionRoot = () => {
         id="PracticeOverlay014"
         component={PracticeOverlay014}
         durationInFrames={810}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
-      <Composition
-        id="AresFable5Overlay"
-        component={AresFable5Overlay}
-        durationInFrames={1665}
         fps={30}
         width={1080}
         height={1920}

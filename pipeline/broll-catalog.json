@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-04-27T10:10:56.375Z",
-  "count": 97,
+  "count": 90,
   "comps": [
     {
       "id": "AgreementTrap",
@@ -28,60 +28,6 @@
       "fps": 30,
       "durationFrames": 180,
       "durationSec": 6
-    },
-    {
-      "id": "AresCrew",
-      "slug": "ares-crew",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 270,
-      "durationSec": 9
-    },
-    {
-      "id": "AresDifferent",
-      "slug": "ares-different",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 270,
-      "durationSec": 9
-    },
-    {
-      "id": "AresGetsBrain",
-      "slug": "ares-gets-brain",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 300,
-      "durationSec": 10
-    },
-    {
-      "id": "AresGetsSmarter",
-      "slug": "ares-gets-smarter",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 180,
-      "durationSec": 6
-    },
-    {
-      "id": "AresImmuneReveal",
-      "slug": "ares-immune-reveal",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 270,
-      "durationSec": 9
-    },
-    {
-      "id": "AresIntro",
-      "slug": "ares-intro",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 360,
-      "durationSec": 12
     },
     {
       "id": "ArguesWithItself",
@@ -842,15 +788,6 @@
     {
       "id": "UnderdogBegins",
       "slug": "underdog-begins",
-      "width": 1920,
-      "height": 1080,
-      "fps": 30,
-      "durationFrames": 270,
-      "durationSec": 9
-    },
-    {
-      "id": "WelcomeAres",
-      "slug": "welcome-ares",
       "width": 1920,
       "height": 1080,
       "fps": 30,

@@ -457,7 +457,7 @@ content.push(
     ['Pillar', 'Lane', 'Opener Pattern'],
     [
       ['A', 'Workflow moment (replicable takeaway).', '"watch what happens when I..." / "here\'s what Claude does when I..."'],
-      ['B', 'Research reveal (authority content).', '"just ran X on ARES and..." / "session [N] just wrapped and..."'],
+      ['B', 'Research reveal (authority content).', '"just ran a new benchmark and..." / "session [N] just wrapped and..."'],
       ['C', 'Hot take / comparison (the proven winner).', '"I never hit X with Y because..." / "most people don\'t realize..."'],
       ['D', 'Breadstick in action (warm the funnel, no pitch).', '"this is my canvas for..." / "I built this thing that..."'],
     ],
@@ -466,7 +466,7 @@ content.push(
   Spacer(),
 
   H2('Example invocations'),
-  Code('# Teleprompter bullets (standard)\nnode shortform-cli.js quicktake "Prompt Injection" --bullets 7 --duration 60\n\n# POV cue card — hot take pillar\nnode shortform-cli.js quicktake "never hit rate limits" --format beats --style pov --pillar C\n\n# POV cue card — research reveal pillar\nnode shortform-cli.js quicktake "ARES session 51 result" --format beats --style pov --pillar B'),
+  Code('# Teleprompter bullets (standard)\nnode shortform-cli.js quicktake "Prompt Injection" --bullets 7 --duration 60\n\n# POV cue card — hot take pillar\nnode shortform-cli.js quicktake "never hit rate limits" --format beats --style pov --pillar C\n\n# POV cue card — research reveal pillar\nnode shortform-cli.js quicktake "benchmark session 51 result" --format beats --style pov --pillar B'),
   Spacer(),
 
   H2('process — the record-to-upload pipeline'),
@@ -560,7 +560,7 @@ content.push(
 // ───────────────────────────────────────────────────────────────────────────
 content.push(
   H1('10. Remotion Studio'),
-  Lead('React-based programmatic video. Used for the 16-GAMI overlays, ARES beat compositions, and carousel-video compositing.'),
+  Lead('React-based programmatic video. Used for the 16-GAMI overlays and carousel-video compositing.'),
 
   H2('Start the studio'),
   Code('npm run remotion:studio\n# Opens http://localhost:3333'),
@@ -570,7 +570,6 @@ content.push(
   Bullet('src/remotion/compositions/ — all video compositions.'),
   Bullet('GamiBannerOverlay — paper-banner overlays that unfold/fold on transcript-word timestamps.'),
   Bullet('CarouselVideoSlide — composites a motion clip INTO a carousel slide\'s art zone.'),
-  Bullet('14 ARES beat compositions — pre-built motion graphics for the ARES content engine.'),
   Spacer(),
 
   H2('Workflow'),

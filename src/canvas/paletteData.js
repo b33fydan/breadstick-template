@@ -7,9 +7,8 @@ export const PALETTE_NODES = [
   { type: 'generator', label: 'Script Generator', icon: 'G', desc: 'Generate scripts from ingredients', color: '#C9A227', category: 'Script' },
   { type: 'ugc-gen', label: 'Script Gen (UGC)', icon: 'U', desc: 'AI influencer UGC scripts', color: '#e0922f', category: 'Script' },
   { type: 'niche-gen', label: 'Script Gen (Niche)', icon: 'N', desc: 'Visual storytelling scripts', color: '#9b59b6', category: 'Script' },
-  { type: 'ares-gen', label: 'Script Gen (ARES)', icon: '⟁', desc: 'ARES corpus scripts: failure-as-feature, research, or first-person framing across 14 named beats', color: '#6366f1', category: 'Script' },
   { type: 'vid-prompt', label: 'Video Prompt', icon: '▶', desc: 'Motion prompts for img2vid', color: '#ff6b35', category: 'Script' },
-  { type: 'qc-gate', label: 'QC Gate', icon: '⬢', desc: 'ARES-style injection + structural validator', color: '#8b5cf6', category: 'Script' },
+  { type: 'qc-gate', label: 'QC Gate', icon: '⬢', desc: 'Prompt-injection + structural validator for generated scripts', color: '#8b5cf6', category: 'Script' },
   { type: 'group-script-types', label: 'Script Types Group', icon: '⊟', desc: 'Group of 5 script-type selectors (Classic flow ingredient)', color: '#5b8def', category: 'Script' },
   { type: 'group-conversion-levels', label: 'Conversion Levels Group', icon: '⊟', desc: 'Group of 3 conversion-level selectors (Classic flow ingredient)', color: '#c27adb', category: 'Script' },
   { type: 'output', label: 'Custom Output', icon: 'O', desc: 'Display prompt output', color: '#00FFFF', data: { label: 'Custom Output', icon: 'O' }, category: 'Script' },
@@ -17,7 +16,7 @@ export const PALETTE_NODES = [
   { type: 'output', label: 'Caption Output', icon: 'C', desc: 'Social-caption display window', color: '#00FFFF', data: { label: 'Caption', icon: 'C' }, category: 'Script' },
 
   // Image Generation
-  { type: 'gami', label: '16-GAMI ARES', icon: '◆', desc: 'ARES agent origami prompts', color: '#C9A227', category: 'Image' },
+  { type: 'gami', label: '16-GAMI', icon: '◆', desc: 'Origami agent prompts', color: '#C9A227', category: 'Image' },
   { type: 'gami-art', label: '16-GAMI Art', icon: '◇', desc: 'Script-driven origami art', color: '#e8b830', category: 'Image' },
   { type: 'image-2', label: 'Image-2', icon: '▦', desc: 'GPT Image-2 — typography + 16-GAMI toggle', color: '#10a37f', category: 'Image' },
   { type: 'pixel-forge', label: 'Pixel Forge', icon: '◾', desc: 'Midjourney pixel-art prompt generator', color: '#f97316', category: 'Image' },
@@ -53,8 +52,6 @@ export const PALETTE_NODES = [
   { type: 'broll', label: 'B-Roll', icon: '◫', desc: 'Splice full-frame motion-graphic cuts into a talking-head', color: '#ff9500', category: 'Compositing' },
   { type: 'video-source', label: 'Video Source', icon: '▶', desc: 'Pick a local video file or paste a URL — feeds downstream video nodes', color: '#3b82f6', category: 'Compositing' },
   { type: 'cartesian', label: 'Cartesian Composer', icon: '⊞', desc: 'Timed overlays at exact x/y/w/h coordinates (% of frame) over a base video', color: '#a855f7', category: 'Compositing' },
-  { type: 'concept-composer', label: 'Concept Composer', icon: '✋', desc: 'Realtime hand-tracked stage with MediaPipe Hands + Three.js. Record yourself wielding ARES props (Cube/Disc/Wire/Scale in later phases). Output webm wires into Cartesian / Stack / Postiz.', color: '#06b6d4', category: 'Compositing' },
-  { type: 'prop-lab', label: 'Prop Lab', icon: '✨', desc: 'Ideate ARES Concept Composer props in plain language. Three input modes (Quick/Pinned/Detailed) + Claude returns a 6-element spec card. Library of entries persists to localStorage across sessions; copy build-prompt to fire a fresh build chat.', color: '#fbbf24', category: 'Compositing' },
   { type: 'asset-sequence', label: 'Asset Sequence', icon: '☰', desc: 'Labeled list of typed assets — wires into Cartesian Composer as a content pool', color: '#14b8a6', category: 'Compositing' },
   { type: 'motion-bake', label: 'Motion Bake', icon: '✦', desc: 'Script → per-beat motion graphics → asset pool (Niche Script Gen → Cartesian)', color: '#7ed957', category: 'Compositing' },
   { type: 'skyframe-picker', label: 'Skyframe Picker', icon: '✺', desc: 'Operator picks the 6 taste-baked Skyframe effects → transparent webms → Cartesian content-pool', color: '#FFD24A', category: 'Compositing' },

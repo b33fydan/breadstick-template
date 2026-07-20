@@ -38,7 +38,7 @@ export default function SixteenGamiPanel() {
         <div className="sixteen-gami-content">
           {/* Agent selector */}
           <div className="gami-section">
-            <h4 className="gami-section-title">ARES AGENT</h4>
+            <h4 className="gami-section-title">AGENT</h4>
             <div className="gami-agent-grid">
               {AGENTS.map((a) => (
                 <button

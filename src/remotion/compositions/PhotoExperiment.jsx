@@ -39,7 +39,7 @@ const LIGHTBULB = { cx: 1300, cy: 600, radius: 90 };
 
 // ─── Fake code lines for the monitor ──────────────────────
 const CODE = [
-  '$ python ares/run_benchmark.py',
+  '$ python run_benchmark.py',
   '',
   'Loading corpus... 33 scenarios',
   'Initializing Architect agent...',

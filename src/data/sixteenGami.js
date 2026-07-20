@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════
 // 16-GAMI — Skyframe's Visual DNA
-// Generates Nano Banana Pro prompts for ARES agents
+// Generates Nano Banana Pro prompts for origami agents
 // with selectable scene elements (environment, character, prop)
 // ═══════════════════════════════════════════════════════════
 

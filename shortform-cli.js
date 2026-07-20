@@ -229,7 +229,6 @@ const TRANSCRIPT_ALIASES = {
   '/clear':         ['slash clear', 'clear'],
   'subagents':      ['sub agents', 'subagent', 'sub-agents'],
   'mcp':            ['m c p', 'mcp', 'em cee pee'],
-  'ares':           ['a r e s', 'ares', 'airs'],
   'kie.ai':         ['kie ai', 'kee ai', 'key ai', 'k i ai'],
   'elevenlabs':     ['eleven labs', 'elevenlabs'],
   '16-gami':        ['sixteen gami', 'sixteen gummy', '16 gami'],
@@ -816,7 +815,7 @@ async function fetchNotionKeyTerms(pageId) {
 // MODE 1: QUICKTAKE — Generate teleprompter OR beats cue card, upload to Drive
 // ═══════════════════════════════════════════════════════════════════════════
 
-// ── ARES POV Engine: pillar-aware hook tuning for style=pov ────────────────
+// ── POV Engine: pillar-aware hook tuning for style=pov ────────────────
 // A high-save-rate Ray-Ban Meta POV Reel pattern — the "I never hit X with Y"
 // pattern-interrupt is the proven winner. Pillars A–D route to different open styles
 // so batch recording sessions can produce 5 varied clips without sounding the same.
@@ -828,8 +827,8 @@ const PILLARS = {
   },
   B: {
     label: 'Research reveal',
-    opens: ['"just ran X on ARES and..."', '"something weird in the benchmark..."', '"session [N] just wrapped and..."'],
-    note: 'Authority content — narrate a real finding from ARES sessions. Name the phenomenon, show the monitor, skip the setup.',
+    opens: ['"just ran a new benchmark and..."', '"something weird in the benchmark..."', '"session [N] just wrapped and..."'],
+    note: 'Authority content — narrate a real finding from your own research sessions. Name the phenomenon, show the monitor, skip the setup.',
   },
   C: {
     label: 'Hot take / comparison',
@@ -1844,7 +1843,7 @@ async function claudeLongformMetadata({ transcript, topic, sessionLabel, povDura
 
   const systemPrompt = `You are a YouTube editor for an AI/cybersecurity builder whose Ray-Ban-Meta POV format performs well on Instagram (high save:like, strong shares, pattern-interrupt hooks).
 
-You receive a word-level transcript of an unscripted ARES development session. Identify the structure for YouTube longform publication.
+You receive a word-level transcript of an unscripted development session. Identify the structure for YouTube longform publication.
 
 Output ONE JSON object with this EXACT shape (no markdown fences, no commentary before or after):
 
@@ -1858,7 +1857,7 @@ Output ONE JSON object with this EXACT shape (no markdown fences, no commentary 
     { "start_sec": 0, "duration_sec": 45, "hook": "punchy clip title", "pillar": "A" }
   ],
   "thumbnail_concepts": ["one-sentence thumbnail idea"],
-  "linkedin_draft": "5-8 sentence LinkedIn post in authoritative-but-conversational voice referencing specific ARES work",
+  "linkedin_draft": "5-8 sentence LinkedIn post in authoritative-but-conversational voice referencing the specific work shown",
   "x_thread": ["tweet 1", "tweet 2"]
 }
 
@@ -1867,7 +1866,7 @@ Hard rules:
 - ${chapterMin}-${chapterMax} chapters total, first chapter starts at 0, chapters minimum 30s apart
 - ${clipMin}-${clipMax} vertical clips, each ${clipDurMin}-${clipDurMax} seconds, pillar must be exactly A|B|C|D where:
   A = Workflow moment (replicable takeaway)
-  B = Research reveal (ARES findings, authority)
+  B = Research reveal (research findings, authority)
   C = Hot take / comparison (pattern-interrupt — proven winner)
   D = Breadstick demo (tool in action, no pitch)
 - 3 thumbnail concepts
@@ -1877,7 +1876,7 @@ Hard rules:
 - Dates, numerals, and technical terms preserved verbatim`;
 
   const transcriptText = transcript.words?.map(w => w.text || w.word).join(' ') || transcript.text || '';
-  const usr = `Topic label: ${topic || 'ARES session'}\nSession label: ${sessionLabel || 'untitled'}\nVideo duration: ${dur > 0 ? dur.toFixed(1) + ' seconds' : 'unknown'}\n\nTranscript:\n${transcriptText}`;
+  const usr = `Topic label: ${topic || 'dev session'}\nSession label: ${sessionLabel || 'untitled'}\nVideo duration: ${dur > 0 ? dur.toFixed(1) + ' seconds' : 'unknown'}\n\nTranscript:\n${transcriptText}`;
 
   const resp = await anthropic(systemPrompt, usr);
 
@@ -2152,7 +2151,7 @@ function remapTranscriptTimestamps(transcript, keepSegments) {
   return mapped;
 }
 
-// ── Non-LLM ship gate (ARES arbiter pattern; see docs/longform_silence_cut.md + ARES synthesis) ──
+// ── Non-LLM ship gate (deterministic arbiter pattern) ──
 // Deterministic validator: takes Claude's metadata JSON, returns SHIP | QUARANTINE | REJECT.
 // No LLM in the verdict path. Cannot be prompt-injected because decisions are scalar comparisons.
 
@@ -2229,7 +2228,7 @@ function longformShipGate(metadata, povDurationSec = 0) {
     });
   }
 
-  // Composite taint decision (ARES pattern: scalar comparison, no LLM)
+  // Composite taint decision (scalar comparison, no LLM)
   const taintScore = Math.min(1.0, violations.reduce((s, v) => s + v.weight, 0));
   const QUARANTINE_THRESHOLD = 0.8;
 
@@ -2325,7 +2324,7 @@ async function longform(opts = {}) {
 
   const voiceId = opts.voiceId || process.env.ELEVENLABS_VOICE_ID;
   const sessionLabel = opts.session || `session_${timestamp()}`;
-  const topic = opts.topic || 'ARES';
+  const topic = opts.topic || 'dev session';
   const lut = opts.lut || 'default';
 
   mkdirSync(WORK_DIR, { recursive: true });
@@ -2488,7 +2487,7 @@ async function longform(opts = {}) {
   if (voiceId && !opts.noVoice) {
     console.log('\n  Step 5: Generating intro + outro voice anchor (ElevenLabs)...');
     const introText = opts.introText || `${metadata.title}. Let's see what happens.`;
-    const outroText = opts.outroText || `Thanks for watching. Follow for the next session. Hit the bell for ARES live drops.`;
+    const outroText = opts.outroText || `Thanks for watching. Follow for the next session. Hit the bell for the next live drop.`;
     const introAudioPath = join(workDir, 'intro_audio.mp3');
     const outroAudioPath = join(workDir, 'outro_audio.mp3');
     try {
@@ -2778,7 +2777,7 @@ Quicktake options:
                         pov = Ray-Ban Meta glasses voice, mid-thought openers, save-coded
   --pillar <A|B|C|D>    Only meaningful with --style pov. Tunes opener + intent per pillar:
                         A = Workflow moment (replicable takeaway)
-                        B = Research reveal (ARES findings, authority)
+                        B = Research reveal (research findings, authority)
                         C = Hot take / comparison (pattern-interrupt — THE proven winner)
                         D = Breadstick in action (canvas/pipeline demo, no pitch)
 
@@ -2812,7 +2811,7 @@ Longform options:
   --pov <path|driveId>  Ray-Ban Meta POV recording (required). Local path OR Drive file ID.
   --desk <path|driveId> Optional side-profile desk cam (for cutaway B-roll).
   --session <label>     Session label (e.g. "session_52"). Defaults to timestamp.
-  --topic <label>       Topic hint passed to Claude metadata (default: "ARES").
+  --topic <label>       Topic hint passed to Claude metadata (default: "dev session").
   --voice-id <id>       ElevenLabs voice ID for branded intro/outro.
                         Or set ELEVENLABS_VOICE_ID env var.
   --intro-text <text>   Override the default intro VO text.
@@ -2850,14 +2849,14 @@ Examples:
   node shortform-cli.js quicktake "Claude Code rate limits" --format beats
   node shortform-cli.js quicktake "Agent handoffs" --format beats --bullets 6
   node shortform-cli.js quicktake "never hit rate limits" --format beats --style pov --pillar C
-  node shortform-cli.js quicktake "ARES session 51 injection result" --format beats --style pov --pillar B
+  node shortform-cli.js quicktake "benchmark session 51 result" --format beats --style pov --pillar B
   node shortform-cli.js quicktake "my Claude Code loop" --format beats --style pov --pillar A
   node shortform-cli.js process
   node shortform-cli.js process --lut cinematic --watch
   node shortform-cli.js gami "a dragon guarding a server room"
   node shortform-cli.js gami "hackers breaching a firewall" --resolution 4K --aspect-ratio 16:9
   node shortform-cli.js longform --pov ./raw_pov.mp4 --desk ./raw_desk.mp4 --session session_52
-  node shortform-cli.js longform --pov DRIVE_FILE_ID --topic "ARES injection resilience"
+  node shortform-cli.js longform --pov DRIVE_FILE_ID --topic "prompt-injection resilience"
 
 Environment:
   ANTHROPIC_API_KEY     For script generation + metadata

@@ -523,7 +523,7 @@ def _draw_inline_header(draw, config, slide, fonts, palette, chrome_cfg):
     muted_rgb = hex_to_rgb(palette["text_muted"])
 
     # Build header text. If tag and topic are identical (or topic isn't set),
-    # show only once — otherwise we get "PROJECT ARES // PROJECT ARES" when the
+    # show only once — otherwise the tag doubles up when the
     # canvas node sets tag but leaves topic unset (topic falls back to tag).
     tag = (slide.get("tag") or "").strip()
     topic = (slide.get("topic") or "").strip()

@@ -194,7 +194,7 @@ rows = [
     ('Clip Frames', 'Batch first-frame images per clip', 'kie.ai (Nano Banana)'),
     ('UGC Video', 'Batch Kling 3.0 from clip + frame pairs', 'kie.ai (Kling 3.0)'),
     ('16-GAMI Art', 'Batch origami art slides', 'kie.ai (Nano Banana)'),
-    ('GAMI ARES', '3-agent origami prompt generation', 'kie.ai (Nano Banana)'),
+    ('16-GAMI', '3-agent origami prompt generation', 'kie.ai (Nano Banana)'),
     ('Title Card', 'Batch text-on-paper first frames', 'kie.ai (Nano Banana)'),
     ('Frame Sandwich', 'First + last frame → Kling 3.0 video', 'kie.ai (Kling 3.0)'),
     ('Carousel', 'Render branded slides with art zones', 'Local Python (render.py)'),

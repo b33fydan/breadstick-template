@@ -68,8 +68,6 @@ import {
   buildHeroCardPrompt,
   buildAssetGalleryPrompt,
 } from '../data/spriteForge';
-import ConceptComposerNode from './ConceptComposerNode.jsx';
-import PropLabNode from './PropLabNode.jsx';
 import { SF_CHUNK_TYPES } from './spriteForgeChunks.jsx';
 
 /* ===== CONTEXT — provides actions to all nodes without useEffect ===== */
@@ -514,7 +512,7 @@ const NODE_ACCENT_COLORS = {
   'niche-gen': '#9b59b6', 'ugc-gen': '#e0922f', 'avatar-frame': '#1abc9c', 'char-scene': '#e056a0', 'clip-splitter': '#e74c3c', 'clip-frames': '#f39c12', 'ugc-video': '#e85d75', 'gami-art': '#e8b830', gami: '#C9A227',
   carousel: '#00ffff', 'vid-prompt': '#ff6b35', 'kie-img2vid': '#e85d75',
   'title-card': '#7ed957', 'frame-sandwich': '#00bfa5', 'remotion-comp': '#4ecdc4', 'ffmpeg-grade': '#f4a261',
-  'chroma-composite': '#ff69b4', 'chroma-motion': '#ff1493', 'chroma-stylize': '#ff6b35', 'live-preview': '#34d399', 'image-2': '#10a37f', 'qc-gate': '#8b5cf6', 'hyperframes': '#00bcd4', 'broll': '#ff9500', 'video-source': '#3b82f6', 'cartesian': '#a855f7', 'asset-sequence': '#14b8a6', 'motion-bake': '#7ed957', 'ares-gen': '#6366f1', 'concept-composer': '#06b6d4',
+  'chroma-composite': '#ff69b4', 'chroma-motion': '#ff1493', 'chroma-stylize': '#ff6b35', 'live-preview': '#34d399', 'image-2': '#10a37f', 'qc-gate': '#8b5cf6', 'hyperframes': '#00bcd4', 'broll': '#ff9500', 'video-source': '#3b82f6', 'cartesian': '#a855f7', 'asset-sequence': '#14b8a6', 'motion-bake': '#7ed957', 
   kie: '#e85d75', blotato: '#00ffff',
   // PRD Maker — single accent for all lens edges (downstream chat uses amber).
   // Per-lens colors live in PRD_LENSES so the node header bar can vary while
@@ -1530,7 +1528,7 @@ function ScriptEffectPinner({ id }) {
   return (
     <div className="cv-node cv-suno nowheel" style={{ '--status-color': dotColor, minWidth: 440, maxWidth: 520 }}>
       <NodeDeleteBtn nodeId={id} />
-      <HandleWithTip type="target" position={Position.Left} id="script-in"     style={{ top: '20%' }} tip="script ← wire any text source (Niche/ARES Script Gen, MindWire, etc.)" />
+      <HandleWithTip type="target" position={Position.Left} id="script-in"     style={{ top: '20%' }} tip="script ← wire any text source (Niche Script Gen, MindWire, etc.)" />
       <HandleWithTip type="target" position={Position.Left} id="transcript-in" style={{ top: '50%' }} tip="transcript ← wire { words: [{text,start,end},...] } from Scribe/Whisper, OR paste JSON below" />
       <HandleWithTip type="source" position={Position.Right} id="beats-out"   style={{ top: '40%' }} tip="beats[] → raw operator-curated beats array for any downstream renderer" />
       <HandleWithTip type="source" position={Position.Right} id="overlay-out" style={{ top: '70%' }} tip="rendered transparent .webm → drop into Cartesian / Stack Video / FFmpeg as overlay layer" />
@@ -2231,7 +2229,7 @@ function AreciboRecapNode({id}) {
 }
 
 /* ===== REGISTRIES ===== */
-const nodeTypes = { character: CharacterNode, ingredient: IngredientNode, type: TypeNode, generator: GeneratorNode, output: OutputNode, group: GroupNode, kie: KieNode, blotato: BlottoNode, gami: GamiNode, 'gami-art': GamiArtNode, 'niche-gen': NicheGenNode, 'ares-gen': ARESScriptGenNode, 'ugc-gen': UgcGenNode, 'avatar-frame': AvatarFrameNode, 'char-scene': CharacterSceneNode, 'clip-splitter': ClipSplitterNode, 'ugc-video': UgcVideoNode, carousel: CarouselNode, 'vid-prompt': VideoPromptNode, 'kie-img2vid': KieImg2VidNode, 'title-card': TitleCardNode, 'frame-sandwich': FrameSandwichNode, 'remotion-comp': RemotionCompNode, 'ffmpeg-grade': FFmpegGradeNode, 'chroma-composite': ChromaCompositeNode, 'chroma-motion': ChromaMotionNode, 'chroma-stylize': ChromaStylizeNode, 'live-preview': LivePreviewNode, 'image-2': ImageTwoNode, 'qc-gate': QCGateNode, 'hyperframes': HyperframesNode, 'broll': BrollNode, 'video-source': VideoSourceNode, 'cartesian': CartesianComposerNode, 'asset-sequence': AssetSequenceNode, 'motion-bake': MotionBakeNode, 'skyframe-picker': SkyframePickerNode, 'cmd-runner': CommandRunnerNode, 'terminal': TerminalNode, 'suno': SunoNode, 'mindwire': MindWireNode, 'pixel-forge': PixelForgeNode, 'sprite-forge': SpriteForgeNode, 'prd-lens': PRDLensNode, 'prd-prompt': PRDPromptCardNode, 'prd-chat': PRDChatNode, 'prd-design': PRDDesignSourceNode, 'prd-render': PRDRenderNode, 'pop-beats': PopBeatsNode, 'stack-video': StackedVideoNode, 'postiz': PostizNode, 'script-pinner': ScriptEffectPinner, 'audio-viz': AudioVisualizerNode, 'bokeh': BokehNode, 'concept-composer': ConceptComposerNode, 'prop-lab': PropLabNode, 'arecibo-recap': AreciboRecapNode, conductor: ConductorNode, ...SF_CHUNK_TYPES };
+const nodeTypes = { character: CharacterNode, ingredient: IngredientNode, type: TypeNode, generator: GeneratorNode, output: OutputNode, group: GroupNode, kie: KieNode, blotato: BlottoNode, gami: GamiNode, 'gami-art': GamiArtNode, 'niche-gen': NicheGenNode, 'ugc-gen': UgcGenNode, 'avatar-frame': AvatarFrameNode, 'char-scene': CharacterSceneNode, 'clip-splitter': ClipSplitterNode, 'ugc-video': UgcVideoNode, carousel: CarouselNode, 'vid-prompt': VideoPromptNode, 'kie-img2vid': KieImg2VidNode, 'title-card': TitleCardNode, 'frame-sandwich': FrameSandwichNode, 'remotion-comp': RemotionCompNode, 'ffmpeg-grade': FFmpegGradeNode, 'chroma-composite': ChromaCompositeNode, 'chroma-motion': ChromaMotionNode, 'chroma-stylize': ChromaStylizeNode, 'live-preview': LivePreviewNode, 'image-2': ImageTwoNode, 'qc-gate': QCGateNode, 'hyperframes': HyperframesNode, 'broll': BrollNode, 'video-source': VideoSourceNode, 'cartesian': CartesianComposerNode, 'asset-sequence': AssetSequenceNode, 'motion-bake': MotionBakeNode, 'skyframe-picker': SkyframePickerNode, 'cmd-runner': CommandRunnerNode, 'terminal': TerminalNode, 'suno': SunoNode, 'mindwire': MindWireNode, 'pixel-forge': PixelForgeNode, 'sprite-forge': SpriteForgeNode, 'prd-lens': PRDLensNode, 'prd-prompt': PRDPromptCardNode, 'prd-chat': PRDChatNode, 'prd-design': PRDDesignSourceNode, 'prd-render': PRDRenderNode, 'pop-beats': PopBeatsNode, 'stack-video': StackedVideoNode, 'postiz': PostizNode, 'script-pinner': ScriptEffectPinner, 'audio-viz': AudioVisualizerNode, 'bokeh': BokehNode, 'arecibo-recap': AreciboRecapNode, conductor: ConductorNode, ...SF_CHUNK_TYPES };
 const edgeTypes = { pulse: PulseEdge };
 
 /* ===== SCRIPT PANEL ===== */
@@ -2642,7 +2640,7 @@ function GamiNode({ id }) {
 
       <div className="cv-gami-header">
         <span className="cv-gami-diamond">◆</span>
-        <span className="cv-gami-title">16-GAMI ARES</span>
+        <span className="cv-gami-title">16-GAMI</span>
         <span className="cv-gami-badge">Nano Banana</span>
       </div>
 
@@ -2891,303 +2889,7 @@ function NicheGenNode({ id, data }) {
   );
 }
 
-/* ===== ARES SCRIPT GEN — corpus-aware scripts about a project ===== */
-//
-// Specialized script generator that runs against the ARES narrative corpus
-// (Beat Sheet + Timeline + technical synthesis + first-person persona). The
-// Beat Sheet is 14 named beats with built-in framing — this node lets the
-// operator pick a preset arc (or custom beat selection), choose framing
-// (failure-as-feature is the default angle you named as resonating most),
-// and pick a length. Output shape matches NicheScriptGen so downstream
-// Motion Bake / Cartesian / Carousel consumers wire up unchanged.
 
-const ARES_BEATS = [
-  { n: 1,  label: 'The Spark' },
-  { n: 2,  label: 'The Failure' },
-  { n: 3,  label: 'The Rebuild (ARES Born)' },
-  { n: 4,  label: 'The Arena' },
-  { n: 5,  label: 'The Closed World' },
-  { n: 6,  label: 'The Experiment' },
-  { n: 7,  label: 'The Discovery (Negative Finding)' },
-  { n: 8,  label: 'The Mechanism (Why Debate Fails)' },
-  { n: 9,  label: 'The Convergence' },
-  { n: 10, label: 'The Pivot (Single-Turn)' },
-  { n: 11, label: 'The Breakthrough (Kill Chain)' },
-  { n: 12, label: 'The Vision (ARES-VISION)' },
-  { n: 13, label: 'Where It Stands' },
-  { n: 14, label: 'The North Star' },
-];
-
-// Preset arcs — pre-selected beat combos for the most useful narrative shapes.
-// "Custom" is the escape hatch: when picked, the per-beat checkboxes appear.
-const ARES_ARC_PRESETS = [
-  { id: 'failure-vindication', label: 'Failure → Vindication',  beats: [2, 3, 7, 9],     hint: 'Setback → Rebuild → Negative finding → convergence' },
-  { id: 'pivot-story',         label: 'The Pivot Story',         beats: [7, 8, 10, 11],   hint: 'Discovery → Mechanism → Pivot → Breakthrough' },
-  { id: 'curiosity-discipline', label: 'Curiosity → Discipline', beats: [1, 6, 7, 14],    hint: 'Spark → Experiment → Discovery → North Star' },
-  { id: 'discovery-vision',    label: 'Discovery + Vision',      beats: [7, 9, 12],       hint: 'Negative finding → Convergence → ARES-VISION beauty shot' },
-  { id: 'full-arc',            label: 'Full Arc',                beats: [1,2,3,4,5,6,7,8,9,10,11,12,13,14], hint: 'All 14 beats — only for longform' },
-  { id: 'custom',              label: 'Custom (pick beats)',     beats: [],               hint: 'Manual beat selection below' },
-];
-
-const ARES_FRAMINGS = [
-  { id: 'failure-as-feature', label: 'failure-as-feature',  hint: 'Default. Lead with the failure, the discovery IS the contribution. Builder-talking-to-builders energy.' },
-  { id: 'research',            label: 'research credibility', hint: 'Methodology + finding + independent corroboration. Peer-review-adjacent register. LinkedIn / academic Substack.' },
-  { id: 'first-person',        label: 'first-person ARES',    hint: 'ARES speaks. Voice from the Maestro persona. Warmth + builder gravitas. Voiceover-ready.' },
-];
-
-const ARES_LENGTHS = [
-  { id: 'shortform', label: 'shortform · ~60s',   hint: '120-160 words, 1-3 beats. POV / Reels / TikTok.' },
-  { id: 'medium',    label: 'medium · ~90-120s',  hint: '220-300 words, 3-5 beats. YouTube short / longer Reel.' },
-  { id: 'longform',  label: 'longform · ~5-10min', hint: '650-1200 words, 6+ beats. Long-form YouTube / Substack post.' },
-];
-
-// Carousel-mode lengths — mirror NICHE_LENGTHS so slide-chunked output flows
-// straight into 16-GAMI Art / Image-2 / Carousel without changing those nodes.
-const ARES_CAROUSEL_LENGTHS = [
-  { id: 'test',   label: 'test',   slides: '1',     words: '20-35',   hint: '1-slide smoke test' },
-  { id: 'short',  label: 'short',  slides: '4-6',   words: '100-160', hint: '4-6 slides, hook + arc + CTA' },
-  { id: 'medium', label: 'medium', slides: '8-10',  words: '180-260', hint: '8-10 slides, more breathing room' },
-  { id: 'long',   label: 'long',   slides: '12-15', words: '280-400', hint: '12-15 slides, full-arc carousel' },
-];
-
-function ARESScriptGenNode({ id }) {
-  const { nodeOutputs, onAresGenerate } = useContext(CanvasCtx);
-  const [framing, setFraming] = useState('failure-as-feature');
-  const [length, setLength] = useState('shortform');
-  const [format, setFormat] = useState('prose');                  // 'prose' | 'carousel'
-  const [carouselLength, setCarouselLength] = useState('short');  // matches NICHE_LENGTHS ids
-  const [presetId, setPresetId] = useState('failure-vindication');
-  const [customBeats, setCustomBeats] = useState(new Set([2, 3, 7, 9]));
-  const [customNote, setCustomNote] = useState('');
-  const [previewOpen, setPreviewOpen] = useState(true);
-  const [copied, setCopied] = useState(false);
-
-  // Resolve effective beat list. Preset always wins unless 'custom' is chosen.
-  const effectiveBeats = (() => {
-    if (presetId === 'custom') return Array.from(customBeats).sort((a, b) => a - b);
-    const preset = ARES_ARC_PRESETS.find(p => p.id === presetId);
-    return preset ? preset.beats : [];
-  })();
-
-  const result = nodeOutputs?.[id] || {};
-  const status = result.status || 'idle';
-  const scriptText = result.script || '';
-  const wordCount = result.wordCount || (scriptText ? scriptText.split(/\s+/).filter(Boolean).length : 0);
-  const error = result.error || '';
-
-  const isGenerating = status === 'generating';
-  const canGenerate = effectiveBeats.length > 0 && !isGenerating;
-
-  const statusColors = { idle: '#555', ready: '#6366f1', generating: '#e85d75', done: '#00FFFF', error: '#e74c3c' };
-  const effectiveStatus = isGenerating ? 'generating' : scriptText ? 'done' : error ? 'error' : canGenerate ? 'ready' : 'idle';
-  const dotColor = statusColors[effectiveStatus];
-
-  const toggleBeat = (n) => {
-    setCustomBeats(prev => {
-      const next = new Set(prev);
-      if (next.has(n)) next.delete(n); else next.add(n);
-      return next;
-    });
-  };
-
-  const copyScript = async () => {
-    if (!scriptText) return;
-    await navigator.clipboard.writeText(scriptText).catch(() => {});
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
-  const presetHint = ARES_ARC_PRESETS.find(p => p.id === presetId)?.hint || '';
-  const framingHint = ARES_FRAMINGS.find(f => f.id === framing)?.hint || '';
-  const lengthHint = ARES_LENGTHS.find(l => l.id === length)?.hint || '';
-  const carouselLengthInfo = ARES_CAROUSEL_LENGTHS.find(l => l.id === carouselLength) || ARES_CAROUSEL_LENGTHS[1];
-
-  return (
-    <div className="cv-node cv-ares-gen nowheel" style={{ '--status-color': dotColor, '--node-accent': '#6366f1' }}>
-      <NodeDeleteBtn nodeId={id} />
-
-      <div className="cv-ares-gen-header">
-        <div className="cv-ares-gen-dot" />
-        <span className="cv-ares-gen-title">ARES Script Gen</span>
-        <span className="cv-ares-gen-badge">{effectiveBeats.length} beat{effectiveBeats.length === 1 ? '' : 's'}</span>
-      </div>
-
-      <div className="cv-ares-gen-row">
-        <label title={framingHint}>framing</label>
-        <select
-          className="cv-ares-gen-input nodrag"
-          value={framing}
-          onChange={(e) => { e.stopPropagation(); setFraming(e.target.value); }}
-          onClick={(e) => e.stopPropagation()}
-          onMouseDown={(e) => e.stopPropagation()}
-        >
-          {ARES_FRAMINGS.map(f => <option key={f.id} value={f.id} title={f.hint}>{f.label}</option>)}
-        </select>
-      </div>
-
-      {/* Format toggle — prose (default narrative) vs carousel (slide-chunked, wires
-          straight into 16-GAMI Art / Image-2 / Carousel without a translation step). */}
-      <div className="cv-ares-gen-row">
-        <label title="prose = flowing narrative. carousel = slide-numbered output that 16-GAMI Art / Image-2 / Carousel can consume directly.">format</label>
-        <div className="cv-ares-gen-format-toggle">
-          <button
-            type="button"
-            className={`cv-ares-gen-format-btn nodrag ${format === 'prose' ? 'active' : ''}`}
-            onClick={(e) => { e.stopPropagation(); setFormat('prose'); }}
-            onMouseDown={(e) => e.stopPropagation()}
-            title="Flowing narrative output. Good for voiceover, longform articles, and Motion Bake."
-          >
-            prose
-          </button>
-          <button
-            type="button"
-            className={`cv-ares-gen-format-btn nodrag ${format === 'carousel' ? 'active' : ''}`}
-            onClick={(e) => { e.stopPropagation(); setFormat('carousel'); }}
-            onMouseDown={(e) => e.stopPropagation()}
-            title="Slide-numbered output. Wires straight into 16-GAMI Art / Image-2 / Carousel for visual storytelling."
-          >
-            carousel
-          </button>
-        </div>
-      </div>
-
-      {format === 'prose' ? (
-        <div className="cv-ares-gen-row">
-          <label title={lengthHint}>length</label>
-          <select
-            className="cv-ares-gen-input nodrag"
-            value={length}
-            onChange={(e) => { e.stopPropagation(); setLength(e.target.value); }}
-            onClick={(e) => e.stopPropagation()}
-            onMouseDown={(e) => e.stopPropagation()}
-          >
-            {ARES_LENGTHS.map(l => <option key={l.id} value={l.id} title={l.hint}>{l.label}</option>)}
-          </select>
-        </div>
-      ) : (
-        <div className="cv-ares-gen-row">
-          <label title={`Slide budget: ${carouselLengthInfo.slides} slides / ${carouselLengthInfo.words} words`}>slides</label>
-          <select
-            className="cv-ares-gen-input nodrag"
-            value={carouselLength}
-            onChange={(e) => { e.stopPropagation(); setCarouselLength(e.target.value); }}
-            onClick={(e) => e.stopPropagation()}
-            onMouseDown={(e) => e.stopPropagation()}
-          >
-            {ARES_CAROUSEL_LENGTHS.map(l => (
-              <option key={l.id} value={l.id} title={l.hint}>
-                {l.label} · {l.slides} slides
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <div className="cv-ares-gen-row">
-        <label title={presetHint}>arc</label>
-        <select
-          className="cv-ares-gen-input nodrag"
-          value={presetId}
-          onChange={(e) => { e.stopPropagation(); setPresetId(e.target.value); }}
-          onClick={(e) => e.stopPropagation()}
-          onMouseDown={(e) => e.stopPropagation()}
-        >
-          {ARES_ARC_PRESETS.map(p => <option key={p.id} value={p.id} title={p.hint}>{p.label}</option>)}
-        </select>
-      </div>
-
-      {presetId !== 'custom' && presetHint && (
-        <div className="cv-ares-gen-hint">{presetHint}</div>
-      )}
-
-      {presetId === 'custom' && (
-        <div className="cv-ares-gen-beats">
-          {ARES_BEATS.map(b => (
-            <label
-              key={b.n}
-              className={`cv-ares-gen-beat ${customBeats.has(b.n) ? 'on' : ''}`}
-              onClick={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-            >
-              <input
-                type="checkbox"
-                className="nodrag"
-                checked={customBeats.has(b.n)}
-                onChange={(e) => { e.stopPropagation(); toggleBeat(b.n); }}
-                onClick={(e) => e.stopPropagation()}
-                onMouseDown={(e) => e.stopPropagation()}
-              />
-              <span className="cv-ares-gen-beat-num">#{b.n}</span>
-              <span className="cv-ares-gen-beat-label">{b.label}</span>
-            </label>
-          ))}
-        </div>
-      )}
-
-      <textarea
-        className="cv-ares-gen-note nodrag"
-        placeholder="Optional: operator hint (e.g. 'lean into the AKIRA aesthetic angle' or 'tie this to the open-source release')"
-        value={customNote}
-        onChange={(e) => { e.stopPropagation(); setCustomNote(e.target.value); }}
-        onClick={(e) => e.stopPropagation()}
-        onMouseDown={(e) => e.stopPropagation()}
-        rows={2}
-      />
-
-      <button
-        className="cv-btn cv-btn-ares-gen"
-        disabled={!canGenerate}
-        onClick={(e) => {
-          e.stopPropagation();
-          onAresGenerate(id, {
-            beats: effectiveBeats,
-            framing,
-            length: format === 'carousel' ? carouselLength : length,
-            format,
-            customNote,
-          });
-        }}
-      >
-        {isGenerating ? 'Generating…' : scriptText ? 'Regenerate' : `Generate ARES ${format === 'carousel' ? 'carousel' : 'script'}`}
-      </button>
-
-      {scriptText && (
-        <>
-          <div className="cv-ares-gen-meta">
-            <span>{wordCount} words</span>
-            <span>·</span>
-            <span>{framing}</span>
-            <span>·</span>
-            <span>{result.length || (format === 'carousel' ? carouselLength : length)}</span>
-            <span>·</span>
-            <span>{result.format || format}</span>
-            <button
-              className="cv-ares-gen-copy"
-              onClick={(e) => { e.stopPropagation(); copyScript(); }}
-            >
-              {copied ? 'copied!' : 'copy'}
-            </button>
-            <button
-              className="cv-ares-gen-toggle"
-              onClick={(e) => { e.stopPropagation(); setPreviewOpen(v => !v); }}
-            >
-              {previewOpen ? '▾ hide' : '▸ show'}
-            </button>
-          </div>
-          {previewOpen && (
-            <div className="cv-ares-gen-preview">{scriptText}</div>
-          )}
-        </>
-      )}
-
-      {error && <div className="cv-ares-gen-error">{error}</div>}
-
-      <Handle type="source" position={Position.Right} id="script-out" />
-    </div>
-  );
-}
-
-/* ===== SCRIPT GEN (UGC) NODE — AI influencer scripts from character ingredients ===== */
 function UgcGenNode({ id }) {
   // Uses the SAME pipeline resolver + onGenerate as the "G" Script Generator
   const { pipeline, onGenerate, onCopyPrompt, nodeOutputs, script } = useContext(CanvasCtx);
@@ -7492,7 +7194,7 @@ function ImageTwoNode({ id, data }) {
   );
 }
 
-/* ===== QC GATE NODE — deterministic ARES-style ship gate for canvas flows ===== */
+/* ===== QC GATE NODE — deterministic ship gate for canvas flows ===== */
 // V1 is a pure visualizer: shows SHIP/QUARANTINE/REJECT on the wire at a chokepoint.
 // The operator is the "Oracle narrator" — they decide whether to wire onward based on the verdict.
 // V2 can add automatic blocking if the human-in-the-loop pattern proves too slow.
@@ -7555,7 +7257,7 @@ function QCGateNode({ id }) {
       <div className="cv-qcgate-header">
         <span className="cv-qcgate-shield">⬢</span>
         <span className="cv-qcgate-title">QC GATE</span>
-        <span className="cv-qcgate-badge">ARES</span>
+        <span className="cv-qcgate-badge">GATE</span>
       </div>
 
       <div className="cv-qcgate-mode">
@@ -8598,7 +8300,7 @@ function CommandRunnerNode({ id }) {
   const outputRef = useRef(null);
 
   // Resolve upstream content from any node wired into the context-in handle.
-  // Common text-emitting field priority: script (most ARES/Niche outputs)
+  // Common text-emitting field priority: script (most script-gen outputs)
   // → prd (PRD Chat) → prompt (Pixel Forge, Image-2) → text/caption/hook
   // (fallbacks). First non-empty wins.
   let upstreamContent = '';
@@ -16329,61 +16031,6 @@ Output ONLY the lens content. Nothing before, nothing after.`;
     }
   }, []);
 
-  // ARES Script Gen — corpus-aware Claude call. Sends beats + framing +
-  // length + optional note to /api/ares/generate. Server handles the
-  // corpus (Beat Sheet + Timeline + synthesis + persona) and the framing
-  // rules. We just write the result to nodeOutputs in the same shape
-  // NicheScriptGen uses, so downstream consumers work unchanged.
-  const onAresGenerate = useCallback(async (nodeId, { beats, framing, length, format, customNote }) => {
-    if (!apiKey) {
-      setNodeOutputs((prev) => ({
-        ...prev,
-        [nodeId]: { ...prev[nodeId], status: 'error', error: 'Anthropic API key not set' },
-      }));
-      return;
-    }
-    setNodeOutputs((prev) => ({
-      ...prev,
-      [nodeId]: { ...prev[nodeId], status: 'generating', script: '', error: '' },
-    }));
-    try {
-      // Longform can take 30-60s on Opus; allow 5min ceiling.
-      const ac = new AbortController();
-      const timeoutHandle = setTimeout(() => ac.abort(), 5 * 60 * 1000);
-      const res = await fetch('http://localhost:3001/api/ares/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ beats, framing, length, format, customNote, apiKey, model }),
-        signal: ac.signal,
-      }).finally(() => clearTimeout(timeoutHandle));
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error || 'Generate failed');
-      setNodeOutputs((prev) => ({
-        ...prev,
-        [nodeId]: {
-          ...prev[nodeId],
-          status: 'done',
-          script: data.script,
-          wordCount: data.wordCount,
-          beats: data.beats,
-          framing: data.framing,
-          length: data.length,
-          format: data.format,
-          error: '',
-        },
-      }));
-    } catch (err) {
-      setNodeOutputs((prev) => ({
-        ...prev,
-        [nodeId]: { ...prev[nodeId], status: 'error', error: err.message },
-      }));
-    }
-  }, [apiKey, model]);
-
-  // Motion Bake — two-phase. Plan calls Claude (~5s), Render calls
-  // Hyperframes CLI sequentially (~20-40s per beat). Both write back to
-  // nodeOutputs. The bake also publishes the asset-sequence shape so
-  // a wired Cartesian downstream picks up the assets without an extra step.
   const onMotionBakePlan = useCallback(async (nodeId, { script, accentColor }) => {
     setNodeOutputs((prev) => ({
       ...prev,
@@ -16586,7 +16233,6 @@ Output ONLY the lens content. Nothing before, nothing after.`;
     onAssetSequencePublish,
     onMotionBakePlan,
     onMotionBakeRender,
-    onAresGenerate,
     onSkyframeRender,
     onCartesianRender,
     onPixelForgeGenerate,
@@ -16616,7 +16262,7 @@ Output ONLY the lens content. Nothing before, nothing after.`;
     maybeStartNextJob,
     resumeKiePoll,
     mutateNodeOutput,
-  }), [onSpawn, onDespawn, hasIngredients, onGenerate, onCopyPrompt, onKieGenerate, onGamiGenerate, onImageTwoBatchGenerate, onGamiArtBatchGenerate, onUgcGenerate, onAvatarScanFolder, onCharacterSceneGenerate, onAreciboRecap, onAreciboRender, onConductorSend, onConductorAccept, onConductorDiscard, onConductorRejectNode, onConductorHover, conductorBatch, onClipSplit, onUgcVideoBatchGenerate, onNicheGenerate, onRunLane, laneRun, syncNodeData, onCarouselRender, onVideoPromptBatchGenerate, onKieImg2VidBatchGenerate, onTitleCardBatchGenerate, onFrameSandwichGenerate, onRemotionComposite, onFfmpegGrade, onChromaComposite, onChromaMotion, onChromaStylize, onHyperframesOverlay, openFilePicker, onBrollSuggest, onBrollRender, onVideoSourcePublish, onAssetSequencePublish, onMotionBakePlan, onMotionBakeRender, onAresGenerate, onSkyframeRender, onCartesianRender, onPixelForgeGenerate, onSpriteForgeGenerate, setChunkOutput, mutateNodeOutput, onLensPublish, onLensEnhance, onPRDGenerate, onPopBeatsRender, onStackVideoRender, onDeleteNode, onDeleteEdge, resolved, status, script, genError, prompts, edges, kieResult, gamiResult, nodeOutputs, nodes, apiKey, model, startKieJob, maybeStartNextJob, resumeKiePoll]); // eslint-disable-line react-hooks/exhaustive-deps
+  }), [onSpawn, onDespawn, hasIngredients, onGenerate, onCopyPrompt, onKieGenerate, onGamiGenerate, onImageTwoBatchGenerate, onGamiArtBatchGenerate, onUgcGenerate, onAvatarScanFolder, onCharacterSceneGenerate, onAreciboRecap, onAreciboRender, onConductorSend, onConductorAccept, onConductorDiscard, onConductorRejectNode, onConductorHover, conductorBatch, onClipSplit, onUgcVideoBatchGenerate, onNicheGenerate, onRunLane, laneRun, syncNodeData, onCarouselRender, onVideoPromptBatchGenerate, onKieImg2VidBatchGenerate, onTitleCardBatchGenerate, onFrameSandwichGenerate, onRemotionComposite, onFfmpegGrade, onChromaComposite, onChromaMotion, onChromaStylize, onHyperframesOverlay, openFilePicker, onBrollSuggest, onBrollRender, onVideoSourcePublish, onAssetSequencePublish, onMotionBakePlan, onMotionBakeRender, onSkyframeRender, onCartesianRender, onPixelForgeGenerate, onSpriteForgeGenerate, setChunkOutput, mutateNodeOutput, onLensPublish, onLensEnhance, onPRDGenerate, onPopBeatsRender, onStackVideoRender, onDeleteNode, onDeleteEdge, resolved, status, script, genError, prompts, edges, kieResult, gamiResult, nodeOutputs, nodes, apiKey, model, startKieJob, maybeStartNextJob, resumeKiePoll]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Build dynamic character palette entries from the live characters list.
   // Re-renders when the operator adds/removes characters via the +Add Character form.

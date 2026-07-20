@@ -11,7 +11,6 @@
     "preview": "vite preview",
     "remotion:studio": "remotion studio src/remotion/index.jsx",
     "manifest": "node tools/build_manifest.js",
-    "remotion:render": "remotion render src/remotion/index.jsx BeatTheSpark --output renders/beat01-the-spark.mp4",
     "test": "vitest run",
     "test:watch": "vitest"
   },

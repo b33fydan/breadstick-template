@@ -69,7 +69,7 @@ function parseArgs() {
     research: false,
     animate: false,
     handle: '@yourhandle',
-    tagText: 'PROJECT ARES',
+    tagText: 'BREADSTICK',
     upperRight: '',
     lowerRight: 'swipe for more',
     motion: 'paper-unfold',
@@ -170,7 +170,7 @@ Options:
   --animate               Render typing-animation mp4 per terminal slide
                           (only valid with --format terminal)
   --handle <handle>       Footer handle (default: @yourhandle)
-  --tag <text>            Upper-left tag badge (default: PROJECT ARES)
+  --tag <text>            Upper-left tag badge (default: BREADSTICK)
   --upper-right <text>    Upper-right text (default: empty)
   --lower-right <text>    Lower-right text (default: swipe for more)
   --motion <style>        ${Object.keys(MOTIONS).join(' | ')} | random (default: paper-unfold)
@@ -428,7 +428,7 @@ async function stepRenderCarousel(opts, slides, artResults) {
   const config = {
     title: opts.topic,
     template: opts.template,
-    profile: { display_name: 'Project ARES', handle: opts.handle },
+    profile: { display_name: 'Breadstick', handle: opts.handle },
     theme: 'dark',
     slides: configSlides,
   };

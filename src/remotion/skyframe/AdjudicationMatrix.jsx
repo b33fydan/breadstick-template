@@ -1,5 +1,5 @@
 // ─── AdjudicationMatrix ──────────────────────────────────────────────────
-// The ARES "verdict gate" snap. Two beveled evidence-grid halves fly in from
+// The "verdict gate" snap. Two beveled evidence-grid halves fly in from
 // left + right and SNAP shut at center — synced to a hand-clap on the doctrine
 // line "LLM proposes. Deterministic code disposes." On impact: a seam flash, a
 // spark burst, and a stamped verdict plate (default "DENIED").

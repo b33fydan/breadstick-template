@@ -205,7 +205,7 @@ export const HELP_TEXT =
 
 // ── Transport-safe send wrapper ────────────────────────────────────────────
 //
-// Every outbound text goes through scanText (ARES ship-gate pattern). If a
+// Every outbound text goes through scanText (ship-gate pattern). If a
 // payload trips an injection signature we replace it with a quarantine notice
 // before handing to the transport, never leaking the suspect bytes downstream.
 

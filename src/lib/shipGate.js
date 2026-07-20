@@ -1,5 +1,5 @@
 /**
- * shipGate — deterministic validator for LLM output safety (ARES pattern).
+ * shipGate — deterministic validator for LLM output safety.
  *
  * Two entry points:
  *   scanText(str)                   → light injection scan, for bare text

@@ -78,7 +78,6 @@ describe('local-filesystem routes', () => {
       'POST /api/higgsfield/upload',
       // camelCase path params — invisible to a naive `\bpath\b` scan.
       'POST /api/remotion/animate-terminal',
-      'POST /api/broll/render',
     ]));
   });
 
