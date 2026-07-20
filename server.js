@@ -5593,7 +5593,7 @@ app.post('/api/arecibo/render', localhostOnly, async (req, res) => {
   }
 });
 
-const PORT = 3001;
+const PORT = Number(process.env.BREADSTICK_PORT || process.env.PORT || 3001);
 const server = http.createServer(app);
 
 server.on('upgrade', (req, socket, head) => {

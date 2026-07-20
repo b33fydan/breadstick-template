@@ -14,7 +14,7 @@ you configure. No telemetry, no accounts, no middleman.
 
 ## Quick start
 
-You need **Node 20+** and **npm**.
+You need **Node 22+** and **npm**. If port 3001 is taken, set BREADSTICK_PORT to move the proxy.
 
 ```bash
 # 1. Install dependencies
