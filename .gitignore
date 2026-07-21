@@ -151,6 +151,11 @@ public/audio-viz/
 public/skyframe-overlays/
 public/bokeh/
 public/skyframe/
+public/visual-lab/
+
+# Runtime data stores the server creates on first boot (jobs, ledgers,
+# conversations) — machine-local, never template content.
+data/
 
 # Imported skill packs — content reinstalls from skills-lock.json pins; the
 # lock file is tracked, the pack payloads are not.

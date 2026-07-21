@@ -43,6 +43,11 @@ export const PALETTE_NODES = [
   { type: 'arecibo-recap', label: 'Arecibo Recap', icon: '📡', desc: 'Weekly transmission — 943-bit cipher grid + decoder video', color: '#2ee6a6', category: 'Video' },
   { type: 'conductor', label: 'Conductor', icon: '🎼', desc: 'Compose a pipeline from plain English — Opus 4.8 stages ghost nodes for your review (drag to add)', color: '#C9A227', category: 'Substrate' },
 
+  // Reactive Visual Lab — deterministic live Three.js instruments + Remotion bake.
+  { type: 'visual-controls', label: 'Field Controls', icon: '⌁', desc: 'Live intensity, motion, holographic colour, and dither control bus', color: '#ffb000', data: { params: {} }, category: 'Visual Lab' },
+  { type: 'visual-field', label: 'Cube Flame Field', icon: '◇', desc: 'Realtime instanced holographic cubes that rise and flow like flame', color: '#ff2f8f', data: { seed: 4317, quality: 'live', backgroundMode: 'transparent', aspect: '16:9', loopDurationSec: 6 }, category: 'Visual Lab' },
+  { type: 'visual-bake', label: 'Visual Bake', icon: '▧', desc: 'Bake the exact visual-scene recipe to transparent WebM or matted MP4', color: '#71f5ff', data: { durationSec: 6, fps: 30, resolutionId: 'portrait', output: 'webm-alpha', bakeQuality: 'production' }, category: 'Visual Lab' },
+
   // Compositing & Effects
   { type: 'chroma-composite', label: 'Chroma Composite', icon: '🎭', desc: 'Character over slide (chromakey + overlay)', color: '#ff69b4', category: 'Compositing' },
   { type: 'chroma-motion', label: 'Chroma Motion', icon: '🎬', desc: 'Animated character over slide (Remotion Tier 2)', color: '#ff1493', category: 'Compositing' },

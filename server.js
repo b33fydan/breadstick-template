@@ -26,6 +26,12 @@ import { formatDiaryTicket } from './server/lifejournal/ticket.js';
 import { elevenLabsTTS, probeDurationSec } from './lib/elevenlabs.js';
 import { createShipTemplate } from './server/shipTemplate.js';
 import { createRenderCache } from './server/renderCache.js';
+import {
+  buildVisualBakeRenderArgs,
+  createVisualBakeCacheParts,
+  normalizeVisualBakeRequest,
+  VisualLabBakeValidationError,
+} from './server/visualLabBake.js';
 import { AccessToken } from 'livekit-server-sdk';
 import { createVoiceWorker } from './server/voiceWorker.js';
 import {logEvent, readWindow} from './server/activityLedger.js';
@@ -2222,6 +2228,86 @@ app.post('/api/remotion/skyframe-effect', async (req, res) => {
   }
 });
 
+// ── Reactive Visual Lab deterministic renderer ──
+//
+// The browser passes a versioned visual-scene recipe, never shader source or
+// pixel data. Preview and bake share the same seeded cube-flame sampler; this
+// endpoint only selects the output shape and drives Remotion frame-by-frame.
+app.post('/api/visual-lab/bake', async (req, res) => {
+  let request;
+  try {
+    request = normalizeVisualBakeRequest(req.body);
+  } catch (error) {
+    if (error instanceof VisualLabBakeValidationError) {
+      return res.status(400).json({ success: false, error: error.message });
+    }
+    console.error('[visual-lab] validation error:', error.message);
+    return res.status(500).json({ success: false, error: 'Unable to validate the visual bake request.' });
+  }
+
+  const outDir = join(__dirname, 'public', 'visual-lab');
+  const key = renderCache.keyFor(createVisualBakeCacheParts(request));
+  const outputFile = `${key}.${request.extension}`;
+  const publicUrl = `/visual-lab/${outputFile}`;
+
+  try {
+    const { cached } = await renderCache.run({
+      cacheDir: outDir,
+      key,
+      ext: request.extension,
+      render: async (target) => {
+        const propsFile = join(outDir, `${key}-${crypto.randomUUID()}.props.json`);
+        const props = {
+          scene: request.scene,
+          durationSec: request.durationSec,
+          fps: request.fps,
+          width: request.width,
+          height: request.height,
+          output: request.output,
+          quality: request.quality,
+        };
+
+        await writeFile(propsFile, JSON.stringify(props));
+        console.log(`[visual-lab] rendering ${request.width}x${request.height} ${request.output} (${request.durationFrames} frames) → ${outputFile}`);
+
+        try {
+          const args = buildVisualBakeRenderArgs({ target, propsFile, request });
+          await withRemotionBrowserRetry(() => new Promise((resolve, reject) => {
+            execFile('npx', args, {
+              cwd: __dirname,
+              timeout: request.quality === 'draft' ? 600000 : 900000,
+              shell: false,
+            }, (error, stdout, stderr) => {
+              if (error) reject(new Error(stderr || stdout || error.message));
+              else resolve(stdout);
+            });
+          }), 'visual-lab');
+        } finally {
+          await unlink(propsFile).catch(() => {});
+        }
+      },
+    });
+
+    console.log(`[visual-lab] ${cached ? 'cache hit' : 'done'}: ${outputFile}`);
+    return res.json({
+      success: true,
+      url: publicUrl,
+      cacheKey: key,
+      cached,
+      durationSec: request.durationSec,
+      durationFrames: request.durationFrames,
+      fps: request.fps,
+      width: request.width,
+      height: request.height,
+      output: request.output,
+      alpha: request.alpha,
+    });
+  } catch (error) {
+    console.error('[visual-lab] render error:', error.message);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 // ── Chroma Composite Motion — Tier 2 (animated character over slide via Remotion) ──
 
 app.post('/api/remotion/chroma-motion', async (req, res) => {
@@ -3916,7 +4002,11 @@ console.log(`[jobQueue] boot recovery: re-queued ${jobRecovery.recovered}, faile
 // ── Render cache (memoize Remotion renders by input hash) ──
 const renderCache = createRenderCache({});
 const RENDER_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
-for (const cacheDir of [join(__dirname, 'public', 'render-cache'), join(__dirname, 'public', 'skyframe')]) {
+for (const cacheDir of [
+  join(__dirname, 'public', 'render-cache'),
+  join(__dirname, 'public', 'skyframe'),
+  join(__dirname, 'public', 'visual-lab'),
+]) {
   const { pruned } = renderCache.prune({ cacheDir, maxAgeMs: RENDER_CACHE_MAX_AGE_MS });
   if (pruned) console.log(`[renderCache] pruned ${pruned} stale entries from ${cacheDir}`);
 }

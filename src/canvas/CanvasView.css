@@ -315,6 +315,23 @@
   opacity: 1;
 }
 
+/* Connected stems read as directional signal wires. The dash period is
+   exactly 10px (1 + 9), so a -10px cycle loops cleanly source-to-target. */
+.cv-edge-flow-wire {
+  stroke-dasharray: 1 9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  animation: cv-edge-flow-forward 900ms linear infinite;
+}
+
+@keyframes cv-edge-flow-forward {
+  to { stroke-dashoffset: -10; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-edge-flow-wire { animation: none; }
+}
+
 .cv-edge-delete:hover {
   background: #e74c3c;
   border-color: #e74c3c;

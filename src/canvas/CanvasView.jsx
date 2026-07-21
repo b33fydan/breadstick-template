@@ -29,6 +29,8 @@ import { parseEnvelope } from './composer/parseEnvelope';
 import { executeGraph, registerLaneExecutors } from './engine/index.js';
 import { scrubEphemeralOutputs } from './persistence.js';
 import { PALETTE_NODES, paletteItemKey } from './paletteData.js';
+import { VisualControlsNode, VisualFieldNode, VisualBakeNode } from './visual-lab/VisualLabNodes.jsx';
+import './visual-lab/visualLab.css';
 
 // Conductor: ref id → catalog title, for ReviewBar chip labels on nodes whose
 // data carries no human label of its own.
@@ -514,6 +516,9 @@ const NODE_ACCENT_COLORS = {
   'title-card': '#7ed957', 'frame-sandwich': '#00bfa5', 'remotion-comp': '#4ecdc4', 'ffmpeg-grade': '#f4a261',
   'chroma-composite': '#ff69b4', 'chroma-motion': '#ff1493', 'chroma-stylize': '#ff6b35', 'live-preview': '#34d399', 'image-2': '#10a37f', 'qc-gate': '#8b5cf6', 'hyperframes': '#00bcd4', 'broll': '#ff9500', 'video-source': '#3b82f6', 'cartesian': '#a855f7', 'asset-sequence': '#14b8a6', 'motion-bake': '#7ed957', 
   kie: '#e85d75', blotato: '#00ffff',
+  'visual-controls': '#ffb000',
+  'visual-field': '#ff2f8f',
+  'visual-bake': '#71f5ff',
   // PRD Maker — single accent for all lens edges (downstream chat uses amber).
   // Per-lens colors live in PRD_LENSES so the node header bar can vary while
   // edges stay coherent visually.
@@ -604,7 +609,12 @@ function PulseEdge(props) {
         style={{ stroke: isActive ? glowColor : accentColor, strokeWidth: 5, opacity: isActive ? 0.25 : 0.12, filter: `drop-shadow(0 0 4px ${isActive ? glowColor : accentColor})` }}
         className={isGenerating ? 'cv-edge-pulse' : ''}
       />
-      <BaseEdge id={props.id} path={path} style={{ stroke: isActive ? glowColor : accentColor, strokeWidth: 2, opacity: isActive ? 0.9 : 0.5, transition: 'stroke 0.3s, opacity 0.3s' }} />
+      <BaseEdge
+        id={props.id}
+        path={path}
+        className="cv-edge-flow-wire"
+        style={{ stroke: isActive ? glowColor : accentColor, strokeWidth: 2, opacity: isActive ? 0.9 : 0.5, transition: 'stroke 0.3s, opacity 0.3s' }}
+      />
       {/* Wide transparent hit area — pointer-events: stroke catches hover anywhere
           along the visible stem without blocking clicks on canvas/nodes around it. */}
       <path
@@ -2229,7 +2239,7 @@ function AreciboRecapNode({id}) {
 }
 
 /* ===== REGISTRIES ===== */
-const nodeTypes = { character: CharacterNode, ingredient: IngredientNode, type: TypeNode, generator: GeneratorNode, output: OutputNode, group: GroupNode, kie: KieNode, blotato: BlottoNode, gami: GamiNode, 'gami-art': GamiArtNode, 'niche-gen': NicheGenNode, 'ugc-gen': UgcGenNode, 'avatar-frame': AvatarFrameNode, 'char-scene': CharacterSceneNode, 'clip-splitter': ClipSplitterNode, 'ugc-video': UgcVideoNode, carousel: CarouselNode, 'vid-prompt': VideoPromptNode, 'kie-img2vid': KieImg2VidNode, 'title-card': TitleCardNode, 'frame-sandwich': FrameSandwichNode, 'remotion-comp': RemotionCompNode, 'ffmpeg-grade': FFmpegGradeNode, 'chroma-composite': ChromaCompositeNode, 'chroma-motion': ChromaMotionNode, 'chroma-stylize': ChromaStylizeNode, 'live-preview': LivePreviewNode, 'image-2': ImageTwoNode, 'qc-gate': QCGateNode, 'hyperframes': HyperframesNode, 'broll': BrollNode, 'video-source': VideoSourceNode, 'cartesian': CartesianComposerNode, 'asset-sequence': AssetSequenceNode, 'motion-bake': MotionBakeNode, 'skyframe-picker': SkyframePickerNode, 'cmd-runner': CommandRunnerNode, 'terminal': TerminalNode, 'suno': SunoNode, 'mindwire': MindWireNode, 'pixel-forge': PixelForgeNode, 'sprite-forge': SpriteForgeNode, 'prd-lens': PRDLensNode, 'prd-prompt': PRDPromptCardNode, 'prd-chat': PRDChatNode, 'prd-design': PRDDesignSourceNode, 'prd-render': PRDRenderNode, 'pop-beats': PopBeatsNode, 'stack-video': StackedVideoNode, 'postiz': PostizNode, 'script-pinner': ScriptEffectPinner, 'audio-viz': AudioVisualizerNode, 'bokeh': BokehNode, 'arecibo-recap': AreciboRecapNode, conductor: ConductorNode, ...SF_CHUNK_TYPES };
+const nodeTypes = { character: CharacterNode, ingredient: IngredientNode, type: TypeNode, generator: GeneratorNode, output: OutputNode, group: GroupNode, kie: KieNode, blotato: BlottoNode, gami: GamiNode, 'gami-art': GamiArtNode, 'niche-gen': NicheGenNode, 'ugc-gen': UgcGenNode, 'avatar-frame': AvatarFrameNode, 'char-scene': CharacterSceneNode, 'clip-splitter': ClipSplitterNode, 'ugc-video': UgcVideoNode, carousel: CarouselNode, 'vid-prompt': VideoPromptNode, 'kie-img2vid': KieImg2VidNode, 'title-card': TitleCardNode, 'frame-sandwich': FrameSandwichNode, 'remotion-comp': RemotionCompNode, 'ffmpeg-grade': FFmpegGradeNode, 'chroma-composite': ChromaCompositeNode, 'chroma-motion': ChromaMotionNode, 'chroma-stylize': ChromaStylizeNode, 'live-preview': LivePreviewNode, 'image-2': ImageTwoNode, 'qc-gate': QCGateNode, 'hyperframes': HyperframesNode, 'broll': BrollNode, 'video-source': VideoSourceNode, 'cartesian': CartesianComposerNode, 'asset-sequence': AssetSequenceNode, 'motion-bake': MotionBakeNode, 'visual-controls': VisualControlsNode, 'visual-field': VisualFieldNode, 'visual-bake': VisualBakeNode, 'skyframe-picker': SkyframePickerNode, 'cmd-runner': CommandRunnerNode, 'terminal': TerminalNode, 'suno': SunoNode, 'mindwire': MindWireNode, 'pixel-forge': PixelForgeNode, 'sprite-forge': SpriteForgeNode, 'prd-lens': PRDLensNode, 'prd-prompt': PRDPromptCardNode, 'prd-chat': PRDChatNode, 'prd-design': PRDDesignSourceNode, 'prd-render': PRDRenderNode, 'pop-beats': PopBeatsNode, 'stack-video': StackedVideoNode, 'postiz': PostizNode, 'script-pinner': ScriptEffectPinner, 'audio-viz': AudioVisualizerNode, 'bokeh': BokehNode, 'arecibo-recap': AreciboRecapNode, conductor: ConductorNode, ...SF_CHUNK_TYPES };
 const edgeTypes = { pulse: PulseEdge };
 
 /* ===== SCRIPT PANEL ===== */
@@ -12966,8 +12976,8 @@ function StackedVideoNode({ id }) {
   );
 }
 
-const PALETTE_CATEGORIES = ['Characters', 'Script', 'Image', 'Video', 'Compositing', 'Distribution', 'PRD Maker', 'Substrate'];
-const PALETTE_COLLAPSE_KEY = 'cv-palette-categories-v2'; // v2 added Characters category
+const PALETTE_CATEGORIES = ['Characters', 'Script', 'Image', 'Video', 'Visual Lab', 'Compositing', 'Distribution', 'PRD Maker', 'Substrate'];
+const PALETTE_COLLAPSE_KEY = 'cv-palette-categories-v3'; // v3 adds the Visual Lab category
 
 function NodePalette({ collapsed, onToggle, extraItems = [], onResetCanvas }) {
   // Persist per-category open/closed state across reloads. Default: Script + Image
@@ -12977,7 +12987,7 @@ function NodePalette({ collapsed, onToggle, extraItems = [], onResetCanvas }) {
       const saved = localStorage.getItem(PALETTE_COLLAPSE_KEY);
       if (saved) return JSON.parse(saved);
     } catch { /* fall through */ }
-    return { Characters: true, Script: true, Image: true, Video: false, Compositing: false, Distribution: false, 'PRD Maker': false };
+    return { Characters: true, Script: true, Image: true, Video: false, 'Visual Lab': true, Compositing: false, Distribution: false, 'PRD Maker': false };
   });
 
   const toggleCat = (cat) => {
@@ -16305,7 +16315,7 @@ Output ONLY the lens content. Nothing before, nothing after.`;
             maxZoom={2}
             proOptions={{ hideAttribution: true }}
           >
-            <Background color="#1a1a24" gap={20} size={1} />
+            <Background color="#343442" gap={20} size={1.4} />
             <Controls />
             <MiniMap nodeColor={() => '#444'} maskColor="rgba(10,10,15,0.85)" />
             <ReviewBar />

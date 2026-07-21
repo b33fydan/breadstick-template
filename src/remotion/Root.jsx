@@ -23,6 +23,11 @@ import {AsciiPlanetShader} from './compositions/AsciiPlanetShader';
 import {AudioVisualizer} from './compositions/AudioVisualizer';
 import {StoryboardSpine, STORYBOARD_SPINE_FRAMES} from './compositions/StoryboardSpine';
 import {AreciboTransmission, ARECIBO_FRAMES} from './compositions/AreciboTransmission';
+import {
+  VisualLabBake,
+  DEFAULT_VISUAL_LAB_BAKE_PROPS,
+  calculateVisualLabBakeMetadata,
+} from './visual-lab/index.js';
 
 const DEFAULTS = {
   durationInFrames: 300,
@@ -36,6 +41,16 @@ export const RemotionRoot = () => {
     <>
       <Composition id="PhotoExperiment" component={PhotoExperiment} {...DEFAULTS} />
       <Composition id="Oracle-16gami" component={Oracle16gami} durationInFrames={300} fps={30} width={1080} height={1920} />
+      <Composition
+        id="VisualLabBake"
+        component={VisualLabBake}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={DEFAULT_VISUAL_LAB_BAKE_PROPS}
+        calculateMetadata={calculateVisualLabBakeMetadata}
+      />
       <Composition
         id="CarouselVideoSlide"
         component={CarouselVideoSlide}
