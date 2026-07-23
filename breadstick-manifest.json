@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-20T13:12:05.126Z",
+  "generated": "2026-07-23T03:07:03.519Z",
   "warnings": [
     "skills: .claude/skills unreadable (ENOENT: no such file or directory, scandir 'C:\\Users\\danny\\AppData\\Local\\Temp\\claude\\E--breadstick\\f53272e5-5f91-4eef-a375-44d16f1ded7e\\scratchpad\\template-june\\.claude\\skills')"
   ],
@@ -218,6 +218,10 @@
       },
       {
         "method": "POST",
+        "path": "/api/visual-lab/bake"
+      },
+      {
+        "method": "POST",
         "path": "/api/remotion/chroma-motion",
         "description": "Remotion motion pass over chroma-keyed character footage"
       },
@@ -402,6 +406,14 @@
         "height": 1920
       },
       {
+        "id": "VisualLabBake",
+        "durationInFrames": 180,
+        "fps": 30,
+        "width": 1920,
+        "height": 1080,
+        "dynamic": true
+      },
+      {
         "id": "CarouselVideoSlide",
         "durationInFrames": 150,
         "fps": 30,
@@ -554,12 +566,6 @@
         "height": 1920
       },
       {
-        "id": "StoryboardSpine",
-        "fps": 30,
-        "width": 1080,
-        "height": 1920
-      },
-      {
         "id": "AreciboTransmission",
         "fps": 30,
         "width": 1080,
@@ -610,6 +616,9 @@
       "cartesian",
       "asset-sequence",
       "motion-bake",
+      "visual-controls",
+      "visual-field",
+      "visual-bake",
       "skyframe-picker",
       "cmd-runner",
       "terminal",

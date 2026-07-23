@@ -122,18 +122,6 @@ function App() {
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <WorkspaceStatusStrip activeCharacterName={activeCharacter?.name ?? null} characterCount={characters.length} />
           <ThemeToggle />
-          <a
-            href="/storyboard/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Static motion-plan storyboard (drop-in glimpse from hyperframes-helper)"
-            style={{
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: 11, fontWeight: 700, letterSpacing: '0.16em',
-              textTransform: 'uppercase', color: '#888', textDecoration: 'none',
-              padding: '8px 14px', border: '1px solid #2e3244', borderRadius: 100,
-            }}
-          >Storyboard ↗</a>
           {VIEW_CYCLE.map(v => (
             <button
               key={v}

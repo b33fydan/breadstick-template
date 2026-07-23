@@ -21,7 +21,6 @@ import {SkyframeOverlay} from './compositions/SkyframeOverlay';
 import {SkyframeSingleEffect} from './compositions/SkyframeSingleEffect';
 import {AsciiPlanetShader} from './compositions/AsciiPlanetShader';
 import {AudioVisualizer} from './compositions/AudioVisualizer';
-import {StoryboardSpine, STORYBOARD_SPINE_FRAMES} from './compositions/StoryboardSpine';
 import {AreciboTransmission, ARECIBO_FRAMES} from './compositions/AreciboTransmission';
 import {
   VisualLabBake,
@@ -361,18 +360,6 @@ export const RemotionRoot = () => {
         fps={24}
         width={1080}
         height={1920}
-      />
-      <Composition
-        id="StoryboardSpine"
-        component={StoryboardSpine}
-        durationInFrames={STORYBOARD_SPINE_FRAMES}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          sheetSrc: 'storyboard/cellB.png',
-          livePanels: [],
-        }}
       />
       <Composition
         id="AreciboTransmission"
